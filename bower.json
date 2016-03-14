@@ -1,5 +1,5 @@
 {
-  "name": "birch-gallery-router",
+  "name": "birch-gallery-view-selector",
   "version": "1.0.0",
   "authors": [
     "Josh Crowther <jshcrowthe@gmail.com>"
@@ -7,9 +7,9 @@
   "description": "An element providing a selectable albums list from a passed data source",
   "keywords": [
   ],
-  "main": "birch-gallery-router.html",
+  "main": "birch-gallery-view-selector.html",
   "license": "http://polymer.github.io/LICENSE.txt",
-  "homepage": "https://github.com/FamilySearchElements/birch-gallery-router",
+  "homepage": "https://github.com/FamilySearchElements/birch-gallery-view-selector",
   "ignore": [
     "/.*",
     "/test/"

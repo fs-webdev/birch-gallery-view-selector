@@ -21,18 +21,18 @@ An element providing a solution to no problem in particular.
 
 Example:
 
-    <birch-gallery-router></birch-gallery-router>
+    <birch-gallery-view-selector></birch-gallery-view-selector>
 
 @group Seed Elements
-@element birch-gallery-router
+@element birch-gallery-view-selector
 @demo demo/index.html
 @hero hero.svg
 -->
-<dom-module id="birch-gallery-router">
+<dom-module id="birch-gallery-view-selector">
   <style include='fs-styles'></style>
-  <link rel="import" type="css" href="birch-gallery-router.css">
+  <link rel="import" type="css" href="birch-gallery-view-selector.css">
   <template>
-    <wc-i18n-src locale='[[_lang]]' locale-dir='[[localeDir()]]' domain='birch-gallery-router'></wc-i18n-src>
+    <wc-i18n-src locale='[[_lang]]' locale-dir='[[localeDir()]]' domain='birch-gallery-view-selector'></wc-i18n-src>
     <template is='dom-if' if="[[!readOnly]]">
       <iron-ajax
         bubbles
@@ -50,39 +50,39 @@ Example:
       <iron-selector id='routerSelector' selected='{{view}}' attr-for-selected='data-uid' selectable='.items-view'>
         <!-- My Memories Static Selector -->
         <li class='layout horizontal center justified items-view' data-uid='my-memories' on-dragover='_handleDrag' on-dragleave='_clearDrag' on-drop='_handleDrop' title="{{i18nMemDesc}}">
-          <wc-i18n key='birch-gallery-router.memories_desc' hidden provider value='{{i18nMemDesc}}'></wc-i18n>
+          <wc-i18n key='birch-gallery-view-selector.memories_desc' hidden provider value='{{i18nMemDesc}}'></wc-i18n>
           <div class="layout horizontal center">
             <i class='album-icon my-memories-icon'></i>
-            <span><wc-i18n key='birch-gallery-router.my_memories' value='{{_i18n.my_memories}}'></wc-i18n></span>
+            <span><wc-i18n key='birch-gallery-view-selector.my_memories' value='{{_i18n.my_memories}}'></wc-i18n></span>
             <span class='fs-badge'>[[count]]</span>
           </div>
         </li>
         <!-- My Archive Static Selector -->
         <li class='layout horizontal center justified items-view' data-uid='my-archive' on-dragover='_handleDrag' on-dragleave='_clearDrag' on-drop='_handleDrop' title="{{i18nArchDesc}}">
-          <wc-i18n key='birch-gallery-router.archive_desc' hidden provider value='{{i18nArchDesc}}'></wc-i18n>
+          <wc-i18n key='birch-gallery-view-selector.archive_desc' hidden provider value='{{i18nArchDesc}}'></wc-i18n>
           <div class="layout horizontal center">
             <i class='album-icon my-archive-icon'></i>
-            <span><wc-i18n key='birch-gallery-router.my_archive' value='{{_i18n.my_archive}}'></wc-i18n></span>
+            <span><wc-i18n key='birch-gallery-view-selector.my_archive' value='{{_i18n.my_archive}}'></wc-i18n></span>
             <span class='fs-badge'>[[archiveCount]]</span>
           </div>
         </li>
         <!-- My Favorites Static Selector -->
         <li class='layout horizontal center justified items-view' data-uid='my-favorites' on-dragover='_handleDrag' on-dragleave='_clearDrag' on-drop='_handleDrop' title="{{i18nFavDesc}}">
-          <wc-i18n key='birch-gallery-router.favorites_desc' hidden provider value='{{i18nFavDesc}}'></wc-i18n>
+          <wc-i18n key='birch-gallery-view-selector.favorites_desc' hidden provider value='{{i18nFavDesc}}'></wc-i18n>
           <div class="layout horizontal center">
             <i class='album-icon my-favorites-icon'></i>
-            <span><wc-i18n key='birch-gallery-router.my_favorites' value='{{_i18n.my_favorites}}'></wc-i18n></span>
+            <span><wc-i18n key='birch-gallery-view-selector.my_favorites' value='{{_i18n.my_favorites}}'></wc-i18n></span>
             <span class='fs-badge'>[[favoritesCount]]</span>
           </div>
         </li>
         <li class="li-padding " title="{{_i18n.albums}}">
-          <h5 class='albums-divider'><wc-i18n key='birch-gallery-router.albums'></wc-i18n></h5>
+          <h5 class='albums-divider'><wc-i18n key='birch-gallery-view-selector.albums'></wc-i18n></h5>
         </li>
         <template is='dom-if' if="[[!readOnly]]">
           <li class='layout li-padding horizontal center add-item-toggle' on-tap='_toggleAddAlbum' hidden='[[_addingAlbum]]' title="{{_i18n.new_album}}">
             <div class="layout horizontal center">
               <i class="album-icon add-folder-icon"></i>
-              <span><wc-i18n key='birch-gallery-router.new_album' value='{{_i18n.new_album}}'></wc-i18n></span>
+              <span><wc-i18n key='birch-gallery-view-selector.new_album' value='{{_i18n.new_album}}'></wc-i18n></span>
             </div>
           </li>
         </template>
@@ -93,7 +93,7 @@ Example:
             <iron-a11y-keys target="[[_albumInput]]" keys="enter" on-keys-pressed="_createNewAlbum"></iron-a11y-keys>
             <input id='titleInput' class='album-title-input' type="text" value='{{_newAlbum.name::input}}' maxlength$='[[_nameMaxLength]]'>
             <div class="layout horizontal center justified">
-              <button id='saveButton' is='fs-button' option='recommended' on-tap='_createNewAlbum' disabled='[[!_newAlbum.name]]'><wc-i18n key='birch-gallery-router.save'></wc-i18n></button>
+              <button id='saveButton' is='fs-button' option='recommended' on-tap='_createNewAlbum' disabled='[[!_newAlbum.name]]'><wc-i18n key='birch-gallery-view-selector.save'></wc-i18n></button>
               <span>[[_charsRemaining(_newAlbum.name)]]</span>
             </div>
           </div>
@@ -116,7 +116,7 @@ Example:
 <script>
 (function() {
   Polymer({
-    is: 'birch-gallery-router',
+    is: 'birch-gallery-view-selector',
     behaviors: [
       FSBehavior,
       WCI18nBehavior
