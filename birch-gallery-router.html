@@ -147,9 +147,12 @@ Example:
         type: Object,
         value: function() { return {}; }
       },
+
+      // Exported Props
       view: {
         type: String,
         value:'my-memories',
+        observer: '_notifyViewChanged',
         notify: true
       },
 
@@ -253,6 +256,11 @@ Example:
         // Tell gallery-data to add selected items to this album
         this.fire('gallery-execute-action', { 'actionType' : 'add_to_album', 'albumId' : collection })
       }
+    },
+    _notifyViewChanged: function(value) {
+      this.fire('gallery-view-changed', {
+        view: value
+      });
     },
     _setupArrowListeners: function() {
       this.listen(window, 'keydown', '_checkArrow');
