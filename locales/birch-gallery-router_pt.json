@@ -1,0 +1,11 @@
+{
+  "albums": "Álbuns",
+  "archive_desc": "Pasta para onde você pode mover as recordações que você não queira mais ver em Minhas Recordações.",
+  "favorites_desc": "É uma coleção de recordações que você escolheu como favoritas ao clicar no ícone em forma de coração, na página da recordação.",
+  "memories_desc": "É uma coleção de todas as recordações que você forneceu, com exceção daquelas movidas para Meu Arquivo.",
+  "my_archive": "Meu Arquivo",
+  "my_favorites": "Minhas Favoritas",
+  "my_memories": "Minhas Recordações",
+  "new_album": "Novo Álbum",
+  "save": "Salvar"
+}

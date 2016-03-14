@@ -1,0 +1,293 @@
+<!--
+@license
+Copyright (c) 2015 The Polymer Project Authors. All rights reserved.
+This code may only be used under the BSD style license found at http://polymer.github.io/LICENSE.txt
+The complete set of authors may be found at http://polymer.github.io/AUTHORS.txt
+The complete set of contributors may be found at http://polymer.github.io/CONTRIBUTORS.txt
+Code distributed by Google as part of the polymer project is also
+subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
+-->
+<link rel="import" href="../polymer/polymer.html">
+<link rel="import" href="../iron-selector/iron-selector.html">
+<link rel="import" href="../layout/layout.html">
+<link rel="import" href="../fs-styles/fs-styles.html">
+<link rel="import" href="../fs-button/fs-button.html">
+<link rel="import" href="../iron-ajax/iron-ajax.html">
+<link rel="import" href="../fs-behavior/fs-behavior.html">
+<link rel="import" href="../wc-i18n/wc-i18n.html">
+<link rel="import" href="../iron-a11y-keys/iron-a11y-keys.html">
+<!--
+An element providing a solution to no problem in particular.
+
+Example:
+
+    <birch-gallery-router></birch-gallery-router>
+
+@group Seed Elements
+@element birch-gallery-router
+@demo demo/index.html
+@hero hero.svg
+-->
+<dom-module id="birch-gallery-router">
+  <style include='fs-styles'></style>
+  <link rel="import" type="css" href="birch-gallery-router.css">
+  <template>
+    <wc-i18n-src locale='[[_lang]]' locale-dir='[[localeDir()]]' domain='birch-gallery-router'></wc-i18n-src>
+    <template is='dom-if' if="[[!readOnly]]">
+      <iron-ajax
+        bubbles
+        id='newAlbum'
+        url='[[_base]]/artifactmanager/albums'
+        method='POST'
+        headers='[[_headers]]'
+        handle-as="json"
+        body='[[_newAlbum]]'
+        loading='{{_newAlbumLoading}}'
+        on-response="_handleNewAlbum"></iron-ajax>
+    </template>
+    <!-- We need to have a tabindex of 0 here to allow this item to be user focusable -->
+    <ul tabindex="0">
+      <iron-selector id='routerSelector' selected='{{view}}' attr-for-selected='data-uid' selectable='.items-view'>
+        <!-- My Memories Static Selector -->
+        <li class='layout horizontal center justified items-view' data-uid='my-memories' on-dragover='_handleDrag' on-dragleave='_clearDrag' on-drop='_handleDrop' title="{{i18nMemDesc}}">
+          <wc-i18n key='birch-gallery-router.memories_desc' hidden provider value='{{i18nMemDesc}}'></wc-i18n>
+          <div class="layout horizontal center">
+            <i class='album-icon my-memories-icon'></i>
+            <span><wc-i18n key='birch-gallery-router.my_memories' value='{{_i18n.my_memories}}'></wc-i18n></span>
+            <span class='fs-badge'>[[count]]</span>
+          </div>
+        </li>
+        <!-- My Archive Static Selector -->
+        <li class='layout horizontal center justified items-view' data-uid='my-archive' on-dragover='_handleDrag' on-dragleave='_clearDrag' on-drop='_handleDrop' title="{{i18nArchDesc}}">
+          <wc-i18n key='birch-gallery-router.archive_desc' hidden provider value='{{i18nArchDesc}}'></wc-i18n>
+          <div class="layout horizontal center">
+            <i class='album-icon my-archive-icon'></i>
+            <span><wc-i18n key='birch-gallery-router.my_archive' value='{{_i18n.my_archive}}'></wc-i18n></span>
+            <span class='fs-badge'>[[archiveCount]]</span>
+          </div>
+        </li>
+        <!-- My Favorites Static Selector -->
+        <li class='layout horizontal center justified items-view' data-uid='my-favorites' on-dragover='_handleDrag' on-dragleave='_clearDrag' on-drop='_handleDrop' title="{{i18nFavDesc}}">
+          <wc-i18n key='birch-gallery-router.favorites_desc' hidden provider value='{{i18nFavDesc}}'></wc-i18n>
+          <div class="layout horizontal center">
+            <i class='album-icon my-favorites-icon'></i>
+            <span><wc-i18n key='birch-gallery-router.my_favorites' value='{{_i18n.my_favorites}}'></wc-i18n></span>
+            <span class='fs-badge'>[[favoritesCount]]</span>
+          </div>
+        </li>
+        <li class="li-padding " title="{{_i18n.albums}}">
+          <h5 class='albums-divider'><wc-i18n key='birch-gallery-router.albums'></wc-i18n></h5>
+        </li>
+        <template is='dom-if' if="[[!readOnly]]">
+          <li class='layout li-padding horizontal center add-item-toggle' on-tap='_toggleAddAlbum' hidden='[[_addingAlbum]]' title="{{_i18n.new_album}}">
+            <div class="layout horizontal center">
+              <i class="album-icon add-folder-icon"></i>
+              <span><wc-i18n key='birch-gallery-router.new_album' value='{{_i18n.new_album}}'></wc-i18n></span>
+            </div>
+          </li>
+        </template>
+        <li class='layout horizontal center' hidden='[[!_addingAlbum]]'>
+          <div class='add-album'>
+            <button id='closeButton' class='close-button' is='fs-button' option='close' on-tap='_handleCancelNewAlbum'></button>
+            <iron-a11y-keys target="[[_albumInput]]" keys="esc" on-keys-pressed="_toggleAddAlbum"></iron-a11y-keys>
+            <iron-a11y-keys target="[[_albumInput]]" keys="enter" on-keys-pressed="_createNewAlbum"></iron-a11y-keys>
+            <input id='titleInput' class='album-title-input' type="text" value='{{_newAlbum.name::input}}' maxlength$='[[_nameMaxLength]]'>
+            <div class="layout horizontal center justified">
+              <button id='saveButton' is='fs-button' option='recommended' on-tap='_createNewAlbum' disabled='[[!_newAlbum.name]]'><wc-i18n key='birch-gallery-router.save'></wc-i18n></button>
+              <span>[[_charsRemaining(_newAlbum.name)]]</span>
+            </div>
+          </div>
+        </li>
+        <!-- Generated list of albums -->
+        <template id="album-list" is='dom-repeat' items='{{albums}}' as='album' sort='_sortByName' filter='_isNotFavorite'>
+          <li class='layout horizontal center justified items-view' data-uid$='[[album.id]]' on-dragover='_handleDrag' on-dragleave='_clearDrag' on-drop='_handleDrop' title="[[album.name]]">
+            <div class='layout horizontal center'>
+              <i class='album-icon folder-icon'></i>
+              <span>[[album.name]]</span>
+              <span class='fs-badge'>[[album.artifactCount]]</span>
+            </div>
+          </li>
+        </template>
+      </iron-selector>
+    </ul>
+  </template>
+</dom-module>
+
+<script>
+(function() {
+  Polymer({
+    is: 'birch-gallery-router',
+    behaviors: [
+      FSBehavior,
+      WCI18nBehavior
+    ],
+    properties: {
+      // Private Props
+      _addingAlbum: {
+        type: Boolean,
+        value: false
+      },
+      _albumInput: {
+        type: Object,
+        value: function() { return this.$.titleInput; }
+      },
+      _newAlbum: {
+        type: Object,
+        value: function() { return {}; }
+      },
+      _newAlbumLoading: {
+        type: Boolean,
+        value: false
+      },
+      _nameMaxLength: {
+        type: Number,
+        value: 200
+      },
+      _i18n: {
+        type: Object,
+        value: function() { return {}; }
+      },
+      view: {
+        type: String,
+        value:'my-memories',
+        notify: true
+      },
+
+      // USER INPUTS
+      albums: {
+        type: Array,
+        notify: true,
+        value: function() { return []; }
+      },
+      count: {
+        type: Number,
+        value: 0
+      },
+      favoritesCount: {
+        type: Number,
+        value: 0
+      },
+      archiveCount: {
+        type: Number,
+        value: 0
+      },
+      handleKeypress: {
+        type: Boolean,
+        value: false
+      },
+      readOnly: {
+        type: Boolean,
+        value: false
+      }
+    },
+    ready: function() {
+      this.listen(document, 'gallery-album-edit', '_renderAlbumList');
+      if (this.handleKeypress) {
+        this.listen(this, 'focus', '_setupArrowListeners');
+        this.listen(this, 'blur', '_removeArrowListners');
+      }
+    },
+    _charsRemaining: function(title) {
+      if (!title) return this._nameMaxLength;
+      return this._nameMaxLength - title.length;
+    },
+    _checkArrow: function(e) {
+      var selector = this.$.routerSelector;
+
+      if (e.keyCode == 38) {
+        e.preventDefault();
+        selector.selectPrevious();
+      } else if (e.keyCode == 40) {
+        e.preventDefault();
+        selector.selectNext();
+      }
+      selector.selectedItem.scrollIntoView(false);
+    },
+    _clearDrag: function(e) {
+      var target = e.currentTarget;
+      target.classList.remove('dragging');
+
+    },
+    _createNewAlbum: function() {
+      if (!this._newAlbum || !this._newAlbum.name || this.readOnly) return;
+      this.$$('#newAlbum').generateRequest();
+    },
+    _handleCancelNewAlbum: function() {
+      this._toggleAddAlbum()
+    },
+    _handleNewAlbum: function(e) {
+      if (!e || !e.detail || !e.detail.response) return;
+      this.push('albums', e.detail.response);
+      this.fire('gallery-router-new-album', e.detail.response);
+      this._toggleAddAlbum();
+    },
+    _handleDrag: function(e) {
+      if (this.readOnly) return;
+      e.preventDefault();
+      var target = e.currentTarget;
+      var collection = target.getAttribute('data-uid');
+      if ((collection === 'my-archive' && this.view !== 'my-memories') || (collection === 'my-memories' && this.view !== 'my-archive'))  {
+        e.dataTransfer.dropEffect = 'move';
+      } else {
+        target.classList.add('dragging');
+      }      
+    },
+    _handleDrop: function(e) {
+      if (this.readOnly) return;
+      e.preventDefault();
+      var target = e.currentTarget;
+      var collection = e.currentTarget.getAttribute('data-uid');
+      // Don't move items to archive from albums or to my memories from anywhere but the archive
+      if ((collection === 'my-archive' && this.view !== 'my-memories') || (collection == 'my-memories' && this.view !== 'my-archive')) return;
+      // Drop
+      this._clearDrag(e);
+      if (!e.dataTransfer.getData('text')) return;
+      
+      if (collection === 'my-favorites') {
+        this.fire('gallery-execute-action', { 'actionType' : 'add_to_my_favorites' });
+      } else if (collection === 'my-memories') {
+        this.fire('gallery-execute-action', { 'actionType' : 'unarchive' });
+      } else if (collection === 'my-archive') {
+        this.fire('gallery-execute-action', { 'actionType' : 'archive'});
+      } else {
+        // Tell gallery-data to add selected items to this album
+        this.fire('gallery-execute-action', { 'actionType' : 'add_to_album', 'albumId' : collection })
+      }
+    },
+    _setupArrowListeners: function() {
+      this.listen(window, 'keydown', '_checkArrow');
+    },
+    _sortByName: function(a, b) {
+      // If both values are undefined return 0;
+      if (!a.name && !b.name) return 0;
+
+      // If one of the values are undefined move 
+      // the existing value ahead of the non-existing
+      if (!a.name || !b.name) return a.name ? -1 : 1;
+
+      // Sort the values by name alphabetically
+      var nameA = a.name.toLowerCase();
+      var nameB = b.name.toLowerCase();
+      if (nameA < nameB) return -1;
+      if (nameA > nameB) return 1;
+      return 0;
+    },
+    _renderAlbumList: function() {
+      this.$['album-list'].render();
+    },
+    _isNotFavorite: function(album) {
+      return album && !album.favorite;
+    },
+    _removeArrowListners: function() {
+      this.unlisten(window, 'keydown', '_checkArrow');
+    },
+    _toggleAddAlbum: function() {
+      this._newAlbum = {};
+      this._addingAlbum = !this._addingAlbum;
+      if (this._addingAlbum) {
+        this.$.titleInput.focus();
+      }
+    },
+  });
+})();
+</script>

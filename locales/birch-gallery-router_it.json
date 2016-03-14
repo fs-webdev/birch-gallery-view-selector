@@ -1,0 +1,11 @@
+{
+  "albums": "Album",
+  "archive_desc": "Puoi spostare qui i ricordi che non vuoi più vedere in I miei ricordi.",
+  "favorites_desc": "Questa è una raccolta di ricordi da te contrassegnati come preferiti cliccando l’icona a forma di cuore nella pagina del singolo ricordo.",
+  "memories_desc": "Questa è una raccolta di tutti i ricordi che hai inserito, ad eccezione di quelli spostati in Il mio archivio.",
+  "my_archive": "Il mio archivio",
+  "my_favorites": "I miei preferiti",
+  "my_memories": "I miei ricordi",
+  "new_album": "Nuovo album",
+  "save": "Salva"
+}

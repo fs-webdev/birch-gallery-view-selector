@@ -1,0 +1,34 @@
+{
+  "name": "birch-gallery-router",
+  "version": "1.0.0",
+  "authors": [
+    "Josh Crowther <jshcrowthe@gmail.com>"
+  ],
+  "description": "An element providing a selectable albums list from a passed data source",
+  "keywords": [
+  ],
+  "main": "birch-gallery-router.html",
+  "license": "http://polymer.github.io/LICENSE.txt",
+  "homepage": "https://github.com/FamilySearchElements/birch-gallery-router",
+  "ignore": [
+    "/.*",
+    "/test/"
+  ],
+  "dependencies": {
+    "polymer": "Polymer/polymer#^1.2.0",
+    "layout": "Polymer/layout",
+    "fs-styles": "fs-webdev/fs-styles#~1.8.0",
+    "fs-button": "jshcrowthe/fs-button",
+    "iron-ajax": "PolymerElements/iron-ajax#~1.0.9",
+    "fs-behavior": "jshcrowthe/fs-behavior",
+    "iron-a11y-keys": "PolymerElements/iron-a11y-keys#~1.0.3",
+    "wc-i18n": "jshcrowthe/wc-i18n#^1.1.0"
+  },
+  "devDependencies": {
+    "iron-component-page": "PolymerElements/iron-component-page#^1.0.0",
+    "web-component-tester": "*"
+  },
+  "resolutions": {
+    "polymer": "^1.2.0"
+  }
+}

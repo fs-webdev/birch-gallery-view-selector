@@ -1,0 +1,11 @@
+{
+  "albums": "Álbumes",
+  "archive_desc": "Usted puede poner aquí los recuerdos que ya no quiere ver en Mis recuerdos.",
+  "favorites_desc": "Esta es una colección de recuerdos que usted ha seleccionado como favoritos al hacer clic en el icono de corazón en la página recuerdos.",
+  "memories_desc": "Esta es una colección de todos los recuerdos con los que usted ha contribuido, excepto aquellos que se han puesto en Mis archivos.",
+  "my_archive": "Mi archivo",
+  "my_favorites": "Mis favoritos",
+  "my_memories": "Mis recuerdos",
+  "new_album": "Nuevo álbum",
+  "save": "Guardar"
+}

@@ -1,0 +1,11 @@
+{
+  "albums": "Alben",
+  "archive_desc": "Sie können Erinnerungen, die Sie nicht mehr angezeigt bekommen möchten, in das Register „Meine Erinnerungen“ verschieben.",
+  "favorites_desc": "Bei dieser Sammlung handelt es sich um Ihre liebsten Erinnerungen, die Sie per Mausklick auf das Herz-Icon auf der Seite „Erinnerungen“ als solche markiert haben.",
+  "memories_desc": "Dies ist eine Sammlung sämtlicher Erinnerungen, die Sie beigesteuert haben, abgesehen von denen, die Sie in Ihr Archiv verschoben haben.",
+  "my_archive": "Mein Archiv",
+  "my_favorites": "Liebste Erinnerungen",
+  "my_memories": "Meine Erinnerungen",
+  "new_album": "Neues Album",
+  "save": "Speichern"
+}

@@ -1,0 +1,11 @@
+{
+  "albums": "Albums",
+  "archive_desc": "Vous pouvez déplacer ici les souvenirs que vous ne voulez plus voir dans la rubrique « Mes souvenirs ».",
+  "favorites_desc": "C’est une collection des souvenirs que vous avez ajoutés aux favoris en cliquant sur l’icône du cœur de la page des souvenirs.",
+  "memories_desc": "C’est une collection de tous les souvenirs que vous avez fournis, excepté ceux déplacés dans le dossier « Mes archives ».",
+  "my_archive": "Mes archives",
+  "my_favorites": "Mes favoris",
+  "my_memories": "Mes souvenirs",
+  "new_album": "Nouvel album",
+  "save": "Enregistrer"
+}
