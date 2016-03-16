@@ -46,7 +46,7 @@ Example:
         on-response="_handleNewAlbum"></iron-ajax>
     </template>
     <!-- We need to have a tabindex of 0 here to allow this item to be user focusable -->
-    <ul tabindex="0">
+    <ul id='list' tabindex="0">
       <iron-selector id='routerSelector' selected='{{view}}' attr-for-selected='data-uid' selectable='.items-view'>
         <!-- My Memories Static Selector -->
         <li class='layout horizontal center justified items-view' data-uid='my-memories' on-dragover='_handleDrag' on-dragleave='_clearDrag' on-drop='_handleDrop' title="{{i18nMemDesc}}">
@@ -181,13 +181,20 @@ Example:
       readOnly: {
         type: Boolean,
         value: false
+      },
+      autoFocus: {
+        type: Boolean,
+        value: false
       }
     },
     ready: function() {
       this.listen(document, 'gallery-album-edit', '_renderAlbumList');
       if (this.handleKeypress) {
-        this.listen(this, 'focus', '_setupArrowListeners');
-        this.listen(this, 'blur', '_removeArrowListners');
+        this.listen(this.$.list, 'focus', '_setupArrowListeners');
+        this.listen(this.$.list, 'blur', '_removeArrowListners');
+        if (this.autoFocus) {
+          this.$.list.focus();
+        }
       }
     },
     _charsRemaining: function(title) {
