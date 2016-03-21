@@ -63,7 +63,7 @@ Example:
           <div class="layout horizontal center">
             <i class='album-icon my-archive-icon'></i>
             <span><wc-i18n key='birch-gallery-view-selector.my_archive' value='{{_i18n.my_archive}}'></wc-i18n></span>
-            <span class='fs-badge' hidden='[[_hideCount(hideCounts, view, "my-archive")]]'>[[_getCount(archiveCount, hideCounts)]]</span>
+            <span class='fs-badge' hidden='[[_hideCount(hideCounts, view, "my-archive")]]'>[[_getCount(archiveCount, hideCounts, count)]]</span>
           </div>
         </li>
         <!-- My Favorites Static Selector -->
@@ -72,7 +72,7 @@ Example:
           <div class="layout horizontal center">
             <i class='album-icon my-favorites-icon'></i>
             <span><wc-i18n key='birch-gallery-view-selector.my_favorites' value='{{_i18n.my_favorites}}'></wc-i18n></span>
-            <span class='fs-badge' hidden='[[_hideCount(hideCounts, view, "my-favorites")]]'>[[_getCount(favoritesCount, hideCounts)]]</span>
+            <span class='fs-badge' hidden='[[_hideCount(hideCounts, view, "my-favorites")]]'>[[_getCount(favoritesCount, hideCounts, count)]]</span>
           </div>
         </li>
         <li class="li-padding " title="{{_i18n.albums}}">
@@ -193,7 +193,7 @@ Example:
        */
       favoritesCount: {
         type: Number,
-        value: 0
+        value: null
       },
 
       /**
@@ -202,7 +202,7 @@ Example:
        */
       archiveCount: {
         type: Number,
-        value: 0
+        value: null
       },
 
       /**
@@ -287,9 +287,9 @@ Example:
       if (!this._newAlbum || !this._newAlbum.name || this.readOnly) return;
       this.$$('#newAlbum').generateRequest();
     },
-    _getCount: function(count, hide) {
+    _getCount: function(count, hide, globalCount) {
       if (!hide || typeof count === 'number') return count;
-      return this.count;
+      return globalCount;
     },
     _handleCancelNewAlbum: function() {
       this._toggleAddAlbum()
