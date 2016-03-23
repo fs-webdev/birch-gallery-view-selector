@@ -13,7 +13,6 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 <link rel="import" href="../fs-styles/fs-styles.html">
 <link rel="import" href="../fs-button/fs-button.html">
 <link rel="import" href="../iron-ajax/iron-ajax.html">
-<link rel="import" href="../fs-behavior/fs-behavior.html">
 <link rel="import" href="../wc-i18n/wc-i18n.html">
 <link rel="import" href="../iron-a11y-keys/iron-a11y-keys.html">
 <!--
@@ -32,14 +31,14 @@ Example:
   <style include='fs-styles'></style>
   <link rel="import" type="css" href="birch-gallery-view-selector.css">
   <template>
-    <wc-i18n-src locale='[[_lang]]' locale-dir='[[localeDir()]]' domain='birch-gallery-view-selector'></wc-i18n-src>
+    <wc-i18n-src locale='[[lang]]' locale-dir='[[localeDir()]]' domain='birch-gallery-view-selector'></wc-i18n-src>
     <template is='dom-if' if="[[!readOnly]]">
       <iron-ajax
         bubbles
         id='newAlbum'
-        url='[[_base]]/artifactmanager/albums'
+        url='[[ajaxbase]]/artifactmanager/albums'
         method='POST'
-        headers='[[_headers]]'
+        headers='[[authHeaders]]'
         handle-as="json"
         body='[[_newAlbum]]'
         loading='{{_newAlbumLoading}}'
@@ -118,8 +117,9 @@ Example:
   Polymer({
     is: 'birch-gallery-view-selector',
     behaviors: [
-      FSBehavior,
-      WCI18nBehavior
+      WCI18nBehavior,
+      OakI18nBehavior,
+      OakAJAXBehavior
     ],
     properties: {
       // Private Props

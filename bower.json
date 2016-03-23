@@ -5,8 +5,7 @@
     "Josh Crowther <jshcrowthe@gmail.com>"
   ],
   "description": "An element providing a selectable albums list from a passed data source",
-  "keywords": [
-  ],
+  "keywords": [],
   "main": "birch-gallery-view-selector.html",
   "license": "http://polymer.github.io/LICENSE.txt",
   "homepage": "https://github.com/FamilySearchElements/birch-gallery-view-selector",
@@ -20,9 +19,10 @@
     "fs-styles": "fs-webdev/fs-styles#~1.8.0",
     "fs-button": "jshcrowthe/fs-button",
     "iron-ajax": "PolymerElements/iron-ajax#~1.0.9",
-    "fs-behavior": "jshcrowthe/fs-behavior",
     "iron-a11y-keys": "PolymerElements/iron-a11y-keys#~1.0.3",
-    "wc-i18n": "jshcrowthe/wc-i18n#^1.1.0"
+    "wc-i18n": "jshcrowthe/wc-i18n#^1.1.0",
+    "oak-i18n-behavior": "FamilySearchElements/oak-i18n-behavior",
+    "oak-ajax-behavior": "FamilySearchElements/oak-ajax-behavior"
   },
   "devDependencies": {
     "iron-component-page": "PolymerElements/iron-component-page#^1.0.0",
