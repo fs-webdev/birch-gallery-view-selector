@@ -1,7 +1,7 @@
 language: node_js
 sudo: false
 before_script:
-  - npm install -g bower polylint web-component-tester git+https://github.com/thedeeno/web-component-tester-istanbul.git coveralls
+  - npm install -g bower polylint web-component-tester istanbul git+https://github.com/thedeeno/web-component-tester-istanbul.git coveralls
   - bower install
   - polylint
 env:
