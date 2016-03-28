@@ -22,4 +22,4 @@ addons:
 script:
   - xvfb-run wct
   - "if [ \"${TRAVIS_PULL_REQUEST}\" = \"false\" ]; then wct -s 'default'; fi"
-after_success: 'cat ./coverage/lcov.info | coveralls'
+after_script: 'cat ./coverage/lcov.info | coveralls'
