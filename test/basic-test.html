@@ -24,25 +24,107 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     <!-- You can use the document as a place to set up your fixtures. -->
     <test-fixture id="birch-gallery-view-selector-fixture">
       <template>
-        <birch-gallery-view-selector></birch-gallery-view-selector>
+        <birch-gallery-view-selector auto-focus handle-keypress></birch-gallery-view-selector>
       </template>
     </test-fixture>
 
     <script>
+      var el;
+      var albumList = [{
+            "id": 116255, 
+            "name": "asdfq", 
+            "description": "", 
+            "contributorPatronId": 556427, 
+            "restrictionState": "OK", 
+            "creationDatetime": 1440431401000, 
+            "slug": "asdfq", 
+            "thumbUrl": "https://beta.familysearch.org/patron/v2/TH-903-57669-3-5/thumb200.jpg?ctx=ArtCtxPublic", 
+            "thumbSquareUrl": "https://beta.familysearch.org/patron/v2/TH-903-57669-3-5/thumb200s.jpg?ctx=ArtCtxPublic", 
+            "thumbIconUrl": "https://beta.familysearch.org/patron/v2/TH-903-57669-3-5/thumb64.jpg?ctx=ArtCtxPublic", 
+            "artifactCount": 13, 
+            "visitCount": 0, 
+            "seoIndexable": true, 
+            "favorite": false, 
+            "uploaderId": 556427, 
+            "editableByCaller": true
+            }, 
+            {
+            "id": 116258, 
+            "name": "asfojifijosa", 
+            "description": "", 
+            "contributorPatronId": 556427, 
+            "restrictionState": "OK", 
+            "creationDatetime": 1440432066000, 
+            "slug": "asfojifijosa", 
+            "thumbUrl": "https://beta.familysearch.org/patron/v2/TH-903-57669-3-5/thumb200.jpg?ctx=ArtCtxPublic", 
+            "thumbSquareUrl": "https://beta.familysearch.org/patron/v2/TH-903-57669-3-5/thumb200s.jpg?ctx=ArtCtxPublic", 
+            "thumbIconUrl": "https://beta.familysearch.org/patron/v2/TH-903-57669-3-5/thumb64.jpg?ctx=ArtCtxPublic", 
+            "artifactCount": 4, 
+            "visitCount": 0, 
+            "seoIndexable": true, 
+            "favorite": false, 
+            "uploaderId": 556427, 
+            "editableByCaller": true
+            }, 
+            {
+            "id": 116309, 
+            "name": "Better Title", 
+            "description": "Add a thing? And edit it!", 
+            "contributorPatronId": 556427, 
+            "restrictionState": "OK", 
+            "creationDatetime": 1441221455000, 
+            "slug": "better-title", 
+            "thumbUrl": "https://beta.familysearch.org/patron/v2/TH-903-57669-3-5/thumb200.jpg?ctx=ArtCtxPublic", 
+            "thumbSquareUrl": "https://beta.familysearch.org/patron/v2/TH-903-57669-3-5/thumb200s.jpg?ctx=ArtCtxPublic", 
+            "thumbIconUrl": "https://beta.familysearch.org/patron/v2/TH-903-57669-3-5/thumb64.jpg?ctx=ArtCtxPublic", 
+            "artifactCount": 21, 
+            "visitCount": 0, 
+            "seoIndexable": true, 
+            "favorite": false, 
+            "uploaderId": 556427, 
+            "editableByCaller": true
+          }];
+      var fireKeyEvent;
+      var EventFactory = function(type) {
+        var event = new Event(type, {
+          preventDefault: function noop() {}
+        });
+        event.dataTransfer = {
+          files: [{ value: 'Hello World' }],
+          getData: function() { return this.files }
+        }
+        
+        return event;
+      };
+     
+
       suite('<birch-gallery-view-selector>', function() {
 
-        var el;
-
+        
         setup(function() {
           el = fixture('birch-gallery-view-selector-fixture');
+          
+          fireKeyEvent = function(keycode) {
+            var event = new Event('keydown');
+              event.key = 'ArrowDown';
+              event.keyCode = keycode;
+              event.which = keycode;
+              event.altKey = false;
+              event.ctrlKey = false;
+              event.shiftKey = false;
+              event.metaKey = false;
+              event.bubbles =  true;
+              window.dispatchEvent(event);
+          };
+
         });
 
-        test('it should have the default values set to the documented values', function() {
+        test('it should have the values set to the documented values', function() {
           assert.equal(el.count, 0);
           assert.equal(el.favoritesCount, null);
           assert.equal(el.archiveCount, null);
-          assert.equal(el.handleKeypress, false);
-          assert.equal(el.autoFocus, false);
+          assert.equal(el.handleKeypress, true);
+          assert.equal(el.autoFocus, true);
           assert.equal(el.readOnly, false);
           assert.equal(el.hideCounts, false);
         });
@@ -52,6 +134,294 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           assert.deepEqual(el.albums, []);
         });
 
+        test('if readOnly is turned on, the new album affordance should be hidden', function() {
+          el.readOnly = true;
+          assert.isNotOk(Polymer.dom(el).querySelectorAll('.add-item-toggle')[0], 'Add album is hidden');
+        });
+
+        test('if hideCounts is on, only 1 count should be displayed', function(done) {
+            el.hideCounts = true;
+            el.albums = albumList;
+          flush(function() {
+            var spans = Polymer.dom(el.root).querySelectorAll('.fs-badge');
+            var count = 0;
+            for (var i = 0; i < spans.length; i++) {
+              if (spans[i].hasAttribute('hidden')) count++;
+            }
+            var visible = spans.length - count;
+            assert.equal(visible, 1);
+            done();
+          });
+        });
+
+        test('If the down arrow key is hit the next item will be selected', function(done) {
+          var selector = Polymer.dom(el.root).querySelector('#routerSelector');
+
+          var keydownListener = function(e) {
+            // Allow for the component listener to apply the change
+            timeout = window.setTimeout(function() {
+              expect(selector.selected).to.equal('my-archive');
+              window.removeEventListener('keydown', keydownListener, false);
+              done();
+            },500);
+          }
+
+          window.addEventListener('keydown', keydownListener, false);
+          
+          flush(function() {
+            Polymer.dom(el.root).querySelector('#list').focus();
+            // There are issues with testing focus programatically but
+            // manual testing of this works.
+            // expect(document.hasFocus()).to.be.true;
+            // expect(document.activeElement).to.equal(Polymer.dom(el.root).querySelector('#list'));
+            el._setupArrowListeners();
+            expect(selector.selected).to.equal('my-memories');
+            fireKeyEvent(40);
+          });
+        });
+
+        test('If the up arrow key is hit the previous item will be selected', function(done) {
+          var selector = Polymer.dom(el.root).querySelector('#routerSelector');
+          el.albums = albumList;
+
+          var keydownListener = function(e) {
+            // Allow for the component listener to apply the change
+            timeout = window.setTimeout(function() {
+              expect(selector.selected).to.equal('116309');
+              window.removeEventListener('keydown', keydownListener, false);
+              done();
+            },500);
+          }
+
+          window.addEventListener('keydown', keydownListener, false);
+
+          flush(function() {
+            Polymer.dom(el.root).querySelector('#list').focus();
+            // There are issues with testing focus programatically but
+            // manual testing of this works.
+            // expect(document.hasFocus()).to.be.true;
+            // expect(document.activeElement).to.equal(Polymer.dom(el.root).querySelector('#list'));
+            el._setupArrowListeners();
+            expect(selector.selected).to.equal('my-memories');
+            fireKeyEvent(38);
+          });
+        });
+
+        /**
+         * Dragover event
+         */
+        
+        suite('Drag over event', function() {
+          setup(function() {
+            el = fixture('birch-gallery-view-selector-fixture');
+          });
+
+          test('Dragging over an album will add the dragging class', function(done) {
+            var event = EventFactory('dragover');
+            var album;
+            el.albums = albumList;
+            
+            flush(function() {
+              album = Polymer.dom(el.root).querySelectorAll('li.album-item')[0];
+              album.addEventListener('dragover', function(e) {
+                expect(album.classList.contains('dragging')).to.be.true;
+                done(); 
+              });
+              album.dispatchEvent(event);   
+            });
+          });
+
+          test('Dragging over my-memories while in album view', function(done) {
+            var event = EventFactory('dragover');
+            var myMemories;
+            el.albums = albumList;
+            el.view = 'some-album';
+            
+            flush(function() {
+              myMemories = Polymer.dom(el.root).querySelector('li[data-uid = my-memories]');
+              myMemories.addEventListener('dragover', function(e) {
+                expect(myMemories.classList.contains('dragging')).to.be.false;
+                expect(e.dataTransfer.dropEffect).to.equal('move');
+                done(); 
+              });
+              myMemories.dispatchEvent(event);   
+            });
+          });
+
+          test('Dragging over my-memories while in archive view', function(done) {
+            var event = EventFactory('dragover');
+            var myMemories;
+            el.albums = albumList;
+            el.view = 'my-archive';
+            
+            flush(function() {
+              myMemories = Polymer.dom(el.root).querySelector('li[data-uid = my-memories]');
+              myMemories.addEventListener('dragover', function(e) {
+                expect(myMemories.classList.contains('dragging')).to.be.true;
+                done(); 
+              });
+              myMemories.dispatchEvent(event);   
+            });
+          });
+        });
+
+        /**
+         * Dragleave event
+         */
+        
+        suite('Dragleave event', function() {
+          setup(function() {
+            el = fixture('birch-gallery-view-selector-fixture');
+          });
+
+          test('Dragging away from an album will remove the dragging class', function(done) {
+            var event =  EventFactory('dragleave');
+            var album;
+            el.albums = albumList;
+
+            flush(function() {
+              album = Polymer.dom(el.root).querySelectorAll('li.album-item')[0];
+              album.classList.add('dragging');   
+              album.addEventListener('dragleave', function(e) {
+                expect(album.classList.contains('dragging')).to.be.false;
+                done(); 
+              });
+              album.dispatchEvent(event); 
+            });
+          });
+        });
+
+        /**
+         * Drop event
+         */
+        
+        suite('Drop event', function() {
+          setup(function() {
+            el = fixture('birch-gallery-view-selector-fixture');
+          });
+
+          test('Dropping on my memories from my archive view', function(done) {
+            var event = EventFactory('drop');
+            var myMemories;
+            var spy = sinon.spy(el, '_handleDrop');
+            el.view = 'my-archive';
+            
+            flush(function() {
+              myMemories = Polymer.dom(el.root).querySelector('li[data-uid = my-memories]');
+              el.addEventListener('gallery-execute-action', function(e) {
+                expect(e.detail.actionType).to.equal('unarchive');
+                expect(spy.calledOnce).to.be.true;
+                done();
+              })
+              myMemories.dispatchEvent(event);   
+            });
+          });
+
+          test('Dropping on my favorites', function(done) {
+            var event = EventFactory('drop');
+            var myFavorites;
+            var spy = sinon.spy(el, '_handleDrop');
+            el.view = 'my-archive';
+            
+            flush(function() {
+              myFavorites = Polymer.dom(el.root).querySelector('li[data-uid = my-favorites]');
+              el.addEventListener('gallery-execute-action', function(e) {
+                expect(e.detail.actionType).to.equal('add_to_my_favorites');
+                expect(spy.calledOnce).to.be.true;
+                done();
+              })
+              myFavorites.dispatchEvent(event);   
+            });
+          });
+
+          test('Dropping on my archive', function(done) {
+            var event = EventFactory('drop');
+            var myArchive;
+            var spy = sinon.spy(el, '_handleDrop');
+            
+            flush(function() {
+              myArchive = Polymer.dom(el.root).querySelector('li[data-uid = my-archive]');
+              el.addEventListener('gallery-execute-action', function(e) {
+                expect(e.detail.actionType).to.equal('archive');
+                expect(spy.calledOnce).to.be.true;
+                done();
+              })
+              myArchive.dispatchEvent(event);   
+            });
+          });
+
+          test('Dropping on an album', function(done) {
+            var event = EventFactory('drop');
+            var album;
+            var spy = sinon.spy(el, '_handleDrop');
+            el.albums = albumList;
+            
+            flush(function() {
+              album = Polymer.dom(el.root).querySelectorAll('li.album-item')[0];
+              albumId = album.getAttribute('data-uid')
+              el.addEventListener('gallery-execute-action', function(e) {
+                expect(e.detail.actionType).to.equal('add_to_album');
+                expect(e.detail.albumId).to.equal(albumId);
+                expect(spy.calledOnce).to.be.true;
+                done();
+              })
+              album.dispatchEvent(event);   
+            });
+          });
+        });
+        
+        /**
+         * New Album
+         */
+        
+        suite('New Album', function() { 
+          var server
+          setup(function() {
+            el = fixture('birch-gallery-view-selector-fixture');
+            server = sinon.fakeServer.create();
+            server.respondWith("POST", "/artifactmanager/albums",
+              [200, { 'Content-Type': 'application/json' },
+              '{ "success": true }']);
+          });
+
+          teardown(function() {
+            server.restore();
+          })
+
+          test('Clicking on new album or x should toggle the create new album view', function() {
+            flush(function() {
+              expect(Polymer.dom(el.root).querySelector('#newAlbumView').hasAttribute('hidden')).to.be.true;
+              Polymer.dom(el.root).querySelector('#newAlbumLink').click();
+              expect(Polymer.dom(el.root).querySelector('#newAlbumView').hasAttribute('hidden')).to.not.be.true;
+              Polymer.dom(el.root).querySelector('#closeButton').click();
+              expect(Polymer.dom(el.root).querySelector('#newAlbumView').hasAttribute('hidden')).to.be.true;
+            });
+          });
+          
+          test('Click the new album button', function(done) {
+            var spy = sinon.spy(el, '_createNewAlbum');
+            el.addEventListener('gallery-router-new-album', function(e) {
+              expect(e.detail.success).to.be.true;
+              done();
+            });
+
+            flush(function() {
+              var input = Polymer.dom(el.root).querySelector('#titleInput');
+              Polymer.dom(el.root).querySelector('#newAlbumLink').click();
+              input.value = 'abc';
+              function fireKey(el) {
+                var eventObj = document.createEvent('Events');
+                    eventObj.initEvent('input', true, true);
+                    el.dispatchEvent(eventObj);
+              }
+              // Event has to be fired from the input field
+              fireKey(input);
+              Polymer.dom(el.root).querySelector('#saveButton').click();
+              expect(spy.calledOnce).to.be.true;
+              server.respond();
+            });
+          });
+        });
 
       });
     </script>

@@ -80,14 +80,14 @@ Example:
           <h5 class='albums-divider'><wc-i18n key='birch-gallery-view-selector.albums'></wc-i18n></h5>
         </li>
         <template is='dom-if' if="[[!readOnly]]">
-          <li class='layout li-padding horizontal center add-item-toggle' on-tap='_toggleAddAlbum' hidden$='[[_addingAlbum]]' title$="{{_i18n.new_album}}">
+          <li id='newAlbumLink' class='layout li-padding horizontal center add-item-toggle' on-tap='_toggleAddAlbum' hidden$='[[_addingAlbum]]' title$="{{_i18n.new_album}}">
             <div class="layout horizontal center">
               <i class="album-icon add-folder-icon"></i>
               <span><wc-i18n key='birch-gallery-view-selector.new_album' value='{{_i18n.new_album}}'></wc-i18n></span>
             </div>
           </li>
         </template>
-        <li class='layout horizontal center' hidden$='[[!_addingAlbum]]'>
+        <li id='newAlbumView' class='layout horizontal center' hidden$='[[!_addingAlbum]]'>
           <div class='add-album'>
             <button id='closeButton' class='close-button' is='fs-button' option='close' on-tap='_handleCancelNewAlbum'></button>
             <iron-a11y-keys target="[[_albumInput]]" keys="esc" on-keys-pressed="_toggleAddAlbum"></iron-a11y-keys>
@@ -101,7 +101,7 @@ Example:
         </li>
         <!-- Generated list of albums -->
         <template id="album-list" is='dom-repeat' items='{{albums}}' as='album' sort='_sortByName' filter='_isNotFavorite'>
-          <li class='layout horizontal center justified items-view' data-uid$='[[album.id]]' on-dragover='_handleDrag' on-dragleave='_clearDrag' on-drop='_handleDrop' title$="[[album.name]]">
+          <li class='layout horizontal center justified items-view album-item' data-uid$='[[album.id]]' on-dragover='_handleDrag' on-dragleave='_clearDrag' on-drop='_handleDrop' title$="[[album.name]]">
             <div class='layout horizontal center'>
               <i class='album-icon folder-icon'></i>
               <span>[[album.name]]</span>
@@ -256,6 +256,8 @@ Example:
     },
     ready: function() {
       this.listen(document, 'gallery-album-edit', '_renderAlbumList');
+    },
+    attached: function() {
       if (this.handleKeypress) {
         this.listen(this.$.list, 'focus', '_setupArrowListeners');
         this.listen(this.$.list, 'blur', '_removeArrowListners');
@@ -270,7 +272,6 @@ Example:
     },
     _checkArrow: function(e) {
       var selector = this.$.routerSelector;
-
       if (e.keyCode == 38) {
         e.preventDefault();
         selector.selectPrevious();
@@ -294,7 +295,7 @@ Example:
     },
     _handleCancelNewAlbum: function() {
       this._toggleAddAlbum()
-    },
+    }, 
     _handleNewAlbum: function(e) {
       if (!e || !e.detail || !e.detail.response) return;
       this.push('albums', e.detail.response);
