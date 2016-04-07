@@ -105,7 +105,7 @@ Example:
             <div class='layout horizontal center'>
               <i class='album-icon folder-icon'></i>
               <span>[[album.name]]</span>
-              <span class='fs-badge' hidden$='[[_hideCount(hideCounts, view, album.id)]]'>[[album.artifactCount]]</span>
+              <span class='fs-badge' hidden$='[[_hideCount(hideCounts, view, album.id)]]'>[[_getCount(album.artifactCount, hideCounts, count)]]</span>
             </div>
           </li>
         </template>
@@ -290,8 +290,8 @@ Example:
       this.$$('#newAlbum').generateRequest();
     },
     _getCount: function(count, hide, globalCount) {
-      if (!hide || typeof count === 'number') return count;
-      return globalCount;
+      if (hide && typeof globalCount === 'number') return globalCount;
+      return count;
     },
     _handleCancelNewAlbum: function() {
       this._toggleAddAlbum()
