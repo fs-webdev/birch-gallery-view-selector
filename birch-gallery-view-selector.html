@@ -64,7 +64,7 @@ Example:
           <div class="layout horizontal center">
             <i class='album-icon my-archive-icon'></i>
             <span><wc-i18n key='birch-gallery-view-selector.my_archive' value='{{_i18n.my_archive}}'></wc-i18n></span>
-            <span class='fs-badge' hidden$='[[_hideCount(hideCounts, view, "my-archive")]]'>[[count]]</span>
+            <span class='fs-badge' hidden$='[[_hideCount(hideCounts, view, "my-archive")]]'>[[_getCount(archiveCount, hideCounts, count)]]</span>
           </div>
         </li>
         <!-- My Favorites Static Selector -->
@@ -73,7 +73,7 @@ Example:
           <div class="layout horizontal center">
             <i class='album-icon my-favorites-icon'></i>
             <span><wc-i18n key='birch-gallery-view-selector.my_favorites' value='{{_i18n.my_favorites}}'></wc-i18n></span>
-            <span class='fs-badge' hidden$='[[_hideCount(hideCounts, view, "my-favorites")]]'>[[count]]</span>
+            <span class='fs-badge' hidden$='[[_hideCount(hideCounts, view, "my-favorites")]]'>[[_getCount(favoritesCount, hideCounts, count)]]</span>
           </div>
         </li>
         <li class="li-padding " title$="{{_i18n.albums}}">
@@ -105,7 +105,7 @@ Example:
             <div class='layout horizontal center'>
               <i class='album-icon folder-icon'></i>
               <span>[[album.name]]</span>
-              <span class='fs-badge' hidden$='[[_hideCount(hideCounts, view, album.id)]]'>[[count]]</span>
+              <span class='fs-badge' hidden$='[[_hideCount(hideCounts, view, album.id)]]'>[[album.artifactCount]]</span>
             </div>
           </li>
         </template>
@@ -243,10 +243,11 @@ Example:
        * If passed this will disable the displaying of counts
        * for everything except the active view.
        *
-       * Additionally when set to true a user can only pass the
+       * Additionally when set to true a user need only pass the
        * `count` property to display counts. If you pass `favoritesCount`
-       * or `archiveCount` it will not work.
-       * @type {Boolean}
+       * or `archiveCount` it will still work, this is simply
+       * given as a convenience option
+       * @type {Object}
        */
       hideCounts: {
         type: Boolean,
