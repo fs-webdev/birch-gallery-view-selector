@@ -177,8 +177,8 @@ Example:
        * The count to be used for the `My Memories` area
        *
        * _NOTE: If the `hideCounts` property is set to true
-       * this property can be used to indicate the count for 
-       * all 3 of the main selection categories (My Memories, 
+       * this property can be used to indicate the count for
+       * all 3 of the main selection categories (My Memories,
        * My Archive, and My Favorites), without passing
        * `archiveCount` or `favoritesCount` (though they will
        * still work)_
@@ -295,7 +295,7 @@ Example:
     },
     _handleCancelNewAlbum: function() {
       this._toggleAddAlbum()
-    }, 
+    },
     _handleNewAlbum: function(e) {
       if (!e || !e.detail || !e.detail.response) return;
       this.push('albums', e.detail.response);
@@ -311,7 +311,7 @@ Example:
         e.dataTransfer.dropEffect = 'move';
       } else {
         target.classList.add('dragging');
-      }      
+      }
     },
     _handleDrop: function(e) {
       if (this.readOnly) return;
@@ -323,7 +323,7 @@ Example:
       // Drop
       this._clearDrag(e);
       if (!e.dataTransfer.getData('text')) return;
-      
+
       if (collection === 'my-favorites') {
         this.fire('gallery-execute-action', { 'actionType' : 'add_to_my_favorites' });
       } else if (collection === 'my-memories') {
@@ -345,13 +345,13 @@ Example:
       });
     },
     _setupArrowListeners: function() {
-      this.listen(window, 'keydown', '_checkArrow');
+      this.listen(document, 'keydown', '_checkArrow');
     },
     _sortByName: function(a, b) {
       // If both values are undefined return 0;
       if (!a.name && !b.name) return 0;
 
-      // If one of the values are undefined move 
+      // If one of the values are undefined move
       // the existing value ahead of the non-existing
       if (!a.name || !b.name) return a.name ? -1 : 1;
 
@@ -369,7 +369,7 @@ Example:
       return album && !album.favorite;
     },
     _removeArrowListners: function() {
-      this.unlisten(window, 'keydown', '_checkArrow');
+      this.unlisten(document, 'keydown', '_checkArrow');
     },
     _toggleAddAlbum: function() {
       this._newAlbum = {};
