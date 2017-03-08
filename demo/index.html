@@ -20,21 +20,52 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     <link rel="import" href="../birch-gallery-view-selector.html">
   </head>
   <body unresolved>
+    <template is='dom-bind'>
+      <select class="" name="locale" value="{{locale::change}}">
+        <option value="de">German</option>
+        <option value="en" selected>English</option>
+        <option value="es">Spanish</option>
+        <option value="fr">French</option>
+        <option value="it">Italian</option>
+        <option value="pt">Portuguese</option>
+        <option value="ru">Russian</option>
+        <option value="ja">Japanese</option>
+        <option value="ko">Korean</option>
+        <option value="zh">Chinese</option>
+      </select>
 
-    <p>An example of editable <code>&lt;birch-gallery-view-selector&gt;</code>:</p>
+      <p>An example of editable <code>&lt;birch-gallery-view-selector&gt;</code>:</p>
 
-    <birch-gallery-view-selector handle-keypress auto-focus albums='[{
-      "id": 116255, 
-      "name": "asdfq", 
+      <birch-gallery-view-selector language='[[locale]]' handle-keypress auto-focus albums='[{
+        "id": 116255, 
+        "name": "asdfq", 
+        "description": "", 
+        "contributorPatronId": 556427, 
+        "restrictionState": "OK", 
+        "creationDatetime": 1440431401000, 
+        "slug": "asdfq", 
+        "thumbUrl": "https://beta.familysearch.org/patron/v2/TH-903-57669-3-5/thumb200.jpg?ctx=ArtCtxPublic", 
+        "thumbSquareUrl": "https://beta.familysearch.org/patron/v2/TH-903-57669-3-5/thumb200s.jpg?ctx=ArtCtxPublic", 
+        "thumbIconUrl": "https://beta.familysearch.org/patron/v2/TH-903-57669-3-5/thumb64.jpg?ctx=ArtCtxPublic", 
+        "artifactCount": 13, 
+        "visitCount": 0, 
+        "seoIndexable": true, 
+        "favorite": false, 
+        "uploaderId": 556427, 
+        "editableByCaller": true
+      }, 
+      {
+      "id": 116258, 
+      "name": "asfojifijosa", 
       "description": "", 
       "contributorPatronId": 556427, 
       "restrictionState": "OK", 
-      "creationDatetime": 1440431401000, 
-      "slug": "asdfq", 
+      "creationDatetime": 1440432066000, 
+      "slug": "asfojifijosa", 
       "thumbUrl": "https://beta.familysearch.org/patron/v2/TH-903-57669-3-5/thumb200.jpg?ctx=ArtCtxPublic", 
       "thumbSquareUrl": "https://beta.familysearch.org/patron/v2/TH-903-57669-3-5/thumb200s.jpg?ctx=ArtCtxPublic", 
       "thumbIconUrl": "https://beta.familysearch.org/patron/v2/TH-903-57669-3-5/thumb64.jpg?ctx=ArtCtxPublic", 
-      "artifactCount": 13, 
+      "artifactCount": 4, 
       "visitCount": 0, 
       "seoIndexable": true, 
       "favorite": false, 
@@ -42,57 +73,57 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       "editableByCaller": true
     }, 
     {
-    "id": 116258, 
-    "name": "asfojifijosa", 
-    "description": "", 
-    "contributorPatronId": 556427, 
-    "restrictionState": "OK", 
-    "creationDatetime": 1440432066000, 
-    "slug": "asfojifijosa", 
-    "thumbUrl": "https://beta.familysearch.org/patron/v2/TH-903-57669-3-5/thumb200.jpg?ctx=ArtCtxPublic", 
-    "thumbSquareUrl": "https://beta.familysearch.org/patron/v2/TH-903-57669-3-5/thumb200s.jpg?ctx=ArtCtxPublic", 
-    "thumbIconUrl": "https://beta.familysearch.org/patron/v2/TH-903-57669-3-5/thumb64.jpg?ctx=ArtCtxPublic", 
-    "artifactCount": 4, 
-    "visitCount": 0, 
-    "seoIndexable": true, 
-    "favorite": false, 
-    "uploaderId": 556427, 
-    "editableByCaller": true
-  }, 
-  {
-    "id": 116309, 
-    "name": "Better Title", 
-    "description": "Add a thing? And edit it!", 
-    "contributorPatronId": 556427, 
-    "restrictionState": "OK", 
-    "creationDatetime": 1441221455000, 
-    "slug": "better-title", 
-    "thumbUrl": "https://beta.familysearch.org/patron/v2/TH-903-57669-3-5/thumb200.jpg?ctx=ArtCtxPublic", 
-    "thumbSquareUrl": "https://beta.familysearch.org/patron/v2/TH-903-57669-3-5/thumb200s.jpg?ctx=ArtCtxPublic", 
-    "thumbIconUrl": "https://beta.familysearch.org/patron/v2/TH-903-57669-3-5/thumb64.jpg?ctx=ArtCtxPublic", 
-    "artifactCount": 21, 
-    "visitCount": 0, 
-    "seoIndexable": true, 
-    "favorite": false, 
-    "uploaderId": 556427, 
-    "editableByCaller": true
-  }]' count='58'>
-  </birch-gallery-view-selector>
-
-    <p>An example of readOnly <code>&lt;birch-gallery-view-selector&gt;</code>:</p>
-
-    <birch-gallery-view-selector handle-keypress read-only hide-counts albums='[{
-      "id": 116255, 
-      "name": "asdfq", 
-      "description": "", 
+      "id": 116309, 
+      "name": "Better Title", 
+      "description": "Add a thing? And edit it!", 
       "contributorPatronId": 556427, 
       "restrictionState": "OK", 
-      "creationDatetime": 1440431401000, 
-      "slug": "asdfq", 
+      "creationDatetime": 1441221455000, 
+      "slug": "better-title", 
       "thumbUrl": "https://beta.familysearch.org/patron/v2/TH-903-57669-3-5/thumb200.jpg?ctx=ArtCtxPublic", 
       "thumbSquareUrl": "https://beta.familysearch.org/patron/v2/TH-903-57669-3-5/thumb200s.jpg?ctx=ArtCtxPublic", 
       "thumbIconUrl": "https://beta.familysearch.org/patron/v2/TH-903-57669-3-5/thumb64.jpg?ctx=ArtCtxPublic", 
-      "artifactCount": 13, 
+      "artifactCount": 21, 
+      "visitCount": 0, 
+      "seoIndexable": true, 
+      "favorite": false, 
+      "uploaderId": 556427, 
+      "editableByCaller": true
+    }]' count='58'>
+    </birch-gallery-view-selector>
+
+      <p>An example of readOnly <code>&lt;birch-gallery-view-selector&gt;</code>:</p>
+
+      <birch-gallery-view-selector language='[[locale]]' handle-keypress read-only hide-counts albums='[{
+        "id": 116255, 
+        "name": "asdfq", 
+        "description": "", 
+        "contributorPatronId": 556427, 
+        "restrictionState": "OK", 
+        "creationDatetime": 1440431401000, 
+        "slug": "asdfq", 
+        "thumbUrl": "https://beta.familysearch.org/patron/v2/TH-903-57669-3-5/thumb200.jpg?ctx=ArtCtxPublic", 
+        "thumbSquareUrl": "https://beta.familysearch.org/patron/v2/TH-903-57669-3-5/thumb200s.jpg?ctx=ArtCtxPublic", 
+        "thumbIconUrl": "https://beta.familysearch.org/patron/v2/TH-903-57669-3-5/thumb64.jpg?ctx=ArtCtxPublic", 
+        "artifactCount": 13, 
+        "visitCount": 0, 
+        "seoIndexable": true, 
+        "favorite": false, 
+        "uploaderId": 556427, 
+        "editableByCaller": true
+      }, 
+      {
+      "id": 116258, 
+      "name": "asfojifijosa", 
+      "description": "", 
+      "contributorPatronId": 556427, 
+      "restrictionState": "OK", 
+      "creationDatetime": 1440432066000, 
+      "slug": "asfojifijosa", 
+      "thumbUrl": "https://beta.familysearch.org/patron/v2/TH-903-57669-3-5/thumb200.jpg?ctx=ArtCtxPublic", 
+      "thumbSquareUrl": "https://beta.familysearch.org/patron/v2/TH-903-57669-3-5/thumb200s.jpg?ctx=ArtCtxPublic", 
+      "thumbIconUrl": "https://beta.familysearch.org/patron/v2/TH-903-57669-3-5/thumb64.jpg?ctx=ArtCtxPublic", 
+      "artifactCount": 4, 
       "visitCount": 0, 
       "seoIndexable": true, 
       "favorite": false, 
@@ -100,42 +131,25 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       "editableByCaller": true
     }, 
     {
-    "id": 116258, 
-    "name": "asfojifijosa", 
-    "description": "", 
-    "contributorPatronId": 556427, 
-    "restrictionState": "OK", 
-    "creationDatetime": 1440432066000, 
-    "slug": "asfojifijosa", 
-    "thumbUrl": "https://beta.familysearch.org/patron/v2/TH-903-57669-3-5/thumb200.jpg?ctx=ArtCtxPublic", 
-    "thumbSquareUrl": "https://beta.familysearch.org/patron/v2/TH-903-57669-3-5/thumb200s.jpg?ctx=ArtCtxPublic", 
-    "thumbIconUrl": "https://beta.familysearch.org/patron/v2/TH-903-57669-3-5/thumb64.jpg?ctx=ArtCtxPublic", 
-    "artifactCount": 4, 
-    "visitCount": 0, 
-    "seoIndexable": true, 
-    "favorite": false, 
-    "uploaderId": 556427, 
-    "editableByCaller": true
-  }, 
-  {
-    "id": 116309, 
-    "name": "Better Title", 
-    "description": "Add a thing? And edit it!", 
-    "contributorPatronId": 556427, 
-    "restrictionState": "OK", 
-    "creationDatetime": 1441221455000, 
-    "slug": "better-title", 
-    "thumbUrl": "https://beta.familysearch.org/patron/v2/TH-903-57669-3-5/thumb200.jpg?ctx=ArtCtxPublic", 
-    "thumbSquareUrl": "https://beta.familysearch.org/patron/v2/TH-903-57669-3-5/thumb200s.jpg?ctx=ArtCtxPublic", 
-    "thumbIconUrl": "https://beta.familysearch.org/patron/v2/TH-903-57669-3-5/thumb64.jpg?ctx=ArtCtxPublic", 
-    "artifactCount": 21, 
-    "visitCount": 0, 
-    "seoIndexable": true, 
-    "favorite": false, 
-    "uploaderId": 556427, 
-    "editableByCaller": true
-  }]' count='58'>
-  </birch-gallery-view-selector>
+      "id": 116309, 
+      "name": "Better Title", 
+      "description": "Add a thing? And edit it!", 
+      "contributorPatronId": 556427, 
+      "restrictionState": "OK", 
+      "creationDatetime": 1441221455000, 
+      "slug": "better-title", 
+      "thumbUrl": "https://beta.familysearch.org/patron/v2/TH-903-57669-3-5/thumb200.jpg?ctx=ArtCtxPublic", 
+      "thumbSquareUrl": "https://beta.familysearch.org/patron/v2/TH-903-57669-3-5/thumb200s.jpg?ctx=ArtCtxPublic", 
+      "thumbIconUrl": "https://beta.familysearch.org/patron/v2/TH-903-57669-3-5/thumb64.jpg?ctx=ArtCtxPublic", 
+      "artifactCount": 21, 
+      "visitCount": 0, 
+      "seoIndexable": true, 
+      "favorite": false, 
+      "uploaderId": 556427, 
+      "editableByCaller": true
+    }]' count='58'>
+    </birch-gallery-view-selector>
+  </template>
 
   </body>
 </html>
