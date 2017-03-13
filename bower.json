@@ -15,7 +15,7 @@
   ],
   "dependencies": {
     "polymer": "Polymer/polymer#^1.2.0",
-    "layout": "Polymer/layout",
+    "layout": "fs-webdev/layout#1.0.0",
     "fs-styles": "fs-webdev/fs-styles#~1.8.0",
     "fs-button": "jshcrowthe/fs-button",
     "iron-ajax": "PolymerElements/iron-ajax#~1.0.9",
