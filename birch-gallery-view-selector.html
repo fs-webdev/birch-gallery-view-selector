@@ -72,6 +72,16 @@ Example:
             <span class='fs-badge' hidden$='[[_hideCount(hideCounts, view, "my-favorites")]]'>[[_getCount(favoritesCount, hideCounts, count)]]</span>
           </div>
         </li>
+        <!-- Recently Deleted Static Selector -->
+        <template is="dom-if" if="[[_deletedOrViewingDeleted(deletedCount, view, showRecentlyDeleted)]]">
+          <li class='layout horizontal center justified items-view' data-uid='recently-deleted' on-dragover='_handleDrag' on-dragleave='_clearDrag' on-drop='_handleDrop' title$="[[i18n('deleted_desc)]]">
+            <div class="layout horizontal center">
+              <i class='album-icon recently-deleted-icon'></i>
+              <span>[[i18n('recently_deleted')]]</span>
+              <span class='fs-badge' hidden$='[[_hideCount(hideCounts, view, "recently-deleted")]]'>[[_getCount(deletedCount, hideCounts, count)]]</span>
+            </div>
+          </li>
+        </template>
         <li class="li-padding " title$="[[i18n('albums')]]">
           <h5 class='albums-divider'>[[i18n('albums')]]</h5>
         </li>
@@ -200,6 +210,15 @@ Example:
       },
 
       /**
+       * The displayed number of deleted artifacts available
+       * @type {Number}
+       */
+      deletedCount: {
+        type: Number,
+        value: null
+      },
+
+      /**
        * If passed this will allow a user to, when focusing the list,
        * use the arrow keys to navigate through the available views
        * @type {Boolean}
@@ -244,6 +263,11 @@ Example:
       hideCounts: {
         type: Boolean,
         value: false
+      },
+
+      showRecentlyDeleted: {
+        type: Boolean,
+        value: false
       }
     },
     ready: function() {
@@ -257,6 +281,9 @@ Example:
           this.$.list.focus();
         }
       }
+    },
+    _deletedOrViewingDeleted: function(deletedCount, view, showRecentlyDeleted) {
+      return showRecentlyDeleted && (deletedCount || view === 'recently-deleted');
     },
     _charsRemaining: function(title) {
       if (!title) return this._nameMaxLength;
@@ -295,7 +322,7 @@ Example:
       this._toggleAddAlbum();
     },
     _handleDrag: function(e) {
-      if (this.readOnly) return;
+      if (this.readOnly || this.view === 'recently-deleted') return;
       e.preventDefault();
       var target = e.currentTarget;
       var collection = target.getAttribute('data-uid');
@@ -311,7 +338,9 @@ Example:
       var target = e.currentTarget;
       var collection = e.currentTarget.getAttribute('data-uid');
       // Don't move items to archive from albums or to my memories from anywhere but the archive
-      if ((collection === 'my-archive' && this.view !== 'my-memories') || (collection == 'my-memories' && this.view !== 'my-archive')) return;
+      if ((collection === 'my-archive' && this.view !== 'my-memories')
+        || (collection === 'my-memories' && this.view !== 'my-archive')
+        || (this.view === 'recently-deleted')) return;
       // Drop
       this._clearDrag(e);
       if (!e.dataTransfer.getData('text')) return;
@@ -321,10 +350,12 @@ Example:
       } else if (collection === 'my-memories') {
         this.fire('gallery-execute-action', { 'actionType' : 'unarchive' });
       } else if (collection === 'my-archive') {
-        this.fire('gallery-execute-action', { 'actionType' : 'archive'});
+        this.fire('gallery-execute-action', { 'actionType' : 'archive' });
+      } else if (collection === 'recently-deleted') {
+        this.fire('gallery-execute-action', { 'actionType' : 'delete' });
       } else {
         // Tell gallery-data to add selected items to this album
-        this.fire('gallery-execute-action', { 'actionType' : 'add_to_album', 'albumId' : collection })
+        this.fire('gallery-execute-action', { 'actionType' : 'add_to_album', 'albumId' : collection });
       }
     },
     _hideCount: function(hide, currentView, targetView) {
