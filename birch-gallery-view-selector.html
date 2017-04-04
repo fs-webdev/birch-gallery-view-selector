@@ -73,7 +73,7 @@ Example:
           </div>
         </li>
         <!-- Recently Deleted Static Selector -->
-        <template is="dom-if" if="[[_deletedOrViewingDeleted(deletedCount, view, showRecentlyDeleted)]]">
+        <template is="dom-if" if="[[showRecentlyDeleted]]">
           <li class='layout horizontal center justified items-view' data-uid='recently-deleted' on-dragover='_handleDrag' on-dragleave='_clearDrag' on-drop='_handleDrop' title$="[[i18n('deleted_desc)]]">
             <div class="layout horizontal center">
               <i class='album-icon recently-deleted-icon'></i>
@@ -281,9 +281,6 @@ Example:
           this.$.list.focus();
         }
       }
-    },
-    _deletedOrViewingDeleted: function(deletedCount, view, showRecentlyDeleted) {
-      return showRecentlyDeleted && (deletedCount || view === 'recently-deleted');
     },
     _charsRemaining: function(title) {
       if (!title) return this._nameMaxLength;
