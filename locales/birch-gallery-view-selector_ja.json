@@ -1,11 +1,14 @@
 {
+  "_LRM_PKTAG688": "birch-gallery-view-selector_1_152 - CHANGES-ONLY",
   "albums": "アルバム",
   "archive_desc": "もう「思い出」で表示したくない思い出を，ここに移動することができます。",
+  "deleted_desc": "これは，あなたが削除した思い出のコレクションです。",
   "favorites_desc": "これは，思い出ページのハートのアイコンをクリックしてお気に入りにした思い出のコレクションです。",
   "memories_desc": "これは，あなたが提供した全ての思い出（「アーカイブ」に移動したものを除く）のコレクションです。",
   "my_archive": "アーカイブ",
   "my_favorites": "お気に入り",
   "my_memories": "思い出",
   "new_album": "新しいアルバム",
+  "recently_deleted": "削除された思い出",
   "save": "保存"
 }
