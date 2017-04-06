@@ -2,7 +2,7 @@ language: node_js
 sudo: true
 dist: trusty
 before_script:
-  - npm install -g bower web-component-tester istanbul git+https://github.com/thedeeno/web-component-tester-istanbul.git coveralls
+  - npm install -g bower web-component-tester
   - bower install
 env:
   global:
@@ -10,6 +10,9 @@ env:
     - secure: DObDewETPYiIsASeC3UETPbQ6YBniRZdNV2eTM1xULvuFNDxXJD09KKyWOiMduublEIJRXLjBIXmD8cbVsgrbRUYA4bxcXffDeuc6q6HaQGU9HvIbLz6o3/oxi4fX2G9GwrZtijW2p2Rgw2l9koR3ovjcM97CSTWFUMh5rtXag8=
     - CXX=g++-4.8
 node_js: stable
+cache: 
+  directories:
+  - bower_components
 addons:
   firefox: latest
   apt:
@@ -22,5 +25,4 @@ addons:
   sauce_connect: true
 script:
   - xvfb-run wct
-  - "if [ \"${TRAVIS_PULL_REQUEST}\" = \"false\" ]; then wct -s 'default'; fi"
-after_script: 'cat ./coverage/lcov.info | coveralls'
+  - "if [ \"${TRAVIS_PULL_REQUEST}\" = \"false\" ]; then wct --plugin sauce; fi"
