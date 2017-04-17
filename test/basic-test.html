@@ -114,7 +114,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
               event.shiftKey = false;
               event.metaKey = false;
               event.bubbles =  true;
-              window.dispatchEvent(event);
+              document.dispatchEvent(event);
           };
 
         });
@@ -161,12 +161,12 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
             // Allow for the component listener to apply the change
             timeout = window.setTimeout(function() {
               expect(selector.selected).to.equal('my-archive');
-              window.removeEventListener('keydown', keydownListener, false);
+              document.removeEventListener('keydown', keydownListener, false);
               done();
-            },500);
+            },0);
           }
 
-          window.addEventListener('keydown', keydownListener, false);
+          document.addEventListener('keydown', keydownListener, false);
           
           flush(function() {
             Polymer.dom(el.root).querySelector('#list').focus();
@@ -188,12 +188,12 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
             // Allow for the component listener to apply the change
             timeout = window.setTimeout(function() {
               expect(selector.selected).to.equal('116309');
-              window.removeEventListener('keydown', keydownListener, false);
+              document.removeEventListener('keydown', keydownListener, false);
               done();
-            },500);
+            },0);
           }
 
-          window.addEventListener('keydown', keydownListener, false);
+          document.addEventListener('keydown', keydownListener, false);
 
           flush(function() {
             Polymer.dom(el.root).querySelector('#list').focus();
