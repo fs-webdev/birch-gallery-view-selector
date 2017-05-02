@@ -1,0 +1,13 @@
+{
+  "albums": "albums|birch-gallery-view-selector_en.json",
+  "archive_desc": "archive_desc|birch-gallery-view-selector_en.json",
+  "deleted_desc": "deleted_desc|birch-gallery-view-selector_en.json",
+  "favorites_desc": "favorites_desc|birch-gallery-view-selector_en.json",
+  "memories_desc": "memories_desc|birch-gallery-view-selector_en.json",
+  "my_archive": "my_archive|birch-gallery-view-selector_en.json",
+  "my_favorites": "my_favorites|birch-gallery-view-selector_en.json",
+  "my_memories": "my_memories|birch-gallery-view-selector_en.json",
+  "new_album": "new_album|birch-gallery-view-selector_en.json",
+  "recently_deleted": "recently_deleted|birch-gallery-view-selector_en.json",
+  "save": "save|birch-gallery-view-selector_en.json"
+}
