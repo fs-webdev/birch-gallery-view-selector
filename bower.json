@@ -1,6 +1,6 @@
 {
   "name": "birch-gallery-view-selector",
-  "version": "2.1.0",
+  "version": "2.1.1",
   "authors": [
     "Josh Crowther <jshcrowthe@gmail.com>"
   ],
@@ -17,7 +17,7 @@
     "polymer": "Polymer/polymer#^1.2.0",
     "layout": "fs-webdev/layout#1.0.0",
     "fs-styles": "fs-webdev/fs-styles#~1.8.0",
-    "fs-button": "jshcrowthe/fs-button",
+    "styles-wc": "fs-webdev/styles-wc#2.x",
     "iron-ajax": "PolymerElements/iron-ajax#~1.0.9",
     "iron-a11y-keys": "PolymerElements/iron-a11y-keys#~1.0.3",
     "wc-i18n": "jshcrowthe/wc-i18n#^2.1.0",
@@ -29,6 +29,7 @@
     "web-component-tester": "^4.2.2"
   },
   "resolutions": {
-    "polymer": "^1.2.0"
+    "polymer": "^1.2.0",
+    "fetch": "~2.0.3"
   }
 }
