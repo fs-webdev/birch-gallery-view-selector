@@ -1,14 +1,14 @@
 {
-  "name": "birch-gallery-view-selector",
+  "name": "fs-gallery-view-selector",
   "version": "2.1.1",
   "authors": [
     "Josh Crowther <jshcrowthe@gmail.com>"
   ],
   "description": "An element providing a selectable albums list from a passed data source",
   "keywords": [],
-  "main": "birch-gallery-view-selector.html",
+  "main": "fs-gallery-view-selector.html",
   "license": "http://polymer.github.io/LICENSE.txt",
-  "homepage": "https://github.com/FamilySearchElements/birch-gallery-view-selector",
+  "homepage": "https://github.com/fs-webdev/fs-gallery-view-selector",
   "ignore": [
     "/.*",
     "/test/"
