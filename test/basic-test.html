@@ -17,14 +17,14 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     <script src="../../web-component-tester/browser.js"></script>
 
     <!-- Step 1: import the element to test -->
-    <link rel="import" href="../birch-gallery-view-selector.html">
+    <link rel="import" href="../fs-gallery-view-selector.html">
   </head>
   <body>
 
     <!-- You can use the document as a place to set up your fixtures. -->
-    <test-fixture id="birch-gallery-view-selector-fixture">
+    <test-fixture id="fs-gallery-view-selector-fixture">
       <template>
-        <birch-gallery-view-selector auto-focus handle-keypress></birch-gallery-view-selector>
+        <fs-gallery-view-selector auto-focus handle-keypress></fs-gallery-view-selector>
       </template>
     </test-fixture>
 
@@ -98,11 +98,11 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       };
      
 
-      suite('<birch-gallery-view-selector>', function() {
+      suite('<fs-gallery-view-selector>', function() {
 
         
         setup(function() {
-          el = fixture('birch-gallery-view-selector-fixture');
+          el = fixture('fs-gallery-view-selector-fixture');
           
           fireKeyEvent = function(keycode) {
             var event = new Event('keydown');
@@ -213,7 +213,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         
         suite('Drag over event', function() {
           setup(function() {
-            el = fixture('birch-gallery-view-selector-fixture');
+            el = fixture('fs-gallery-view-selector-fixture');
           });
 
           test('Dragging over an album will add the dragging class', function(done) {
@@ -271,7 +271,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         
         suite('Dragleave event', function() {
           setup(function() {
-            el = fixture('birch-gallery-view-selector-fixture');
+            el = fixture('fs-gallery-view-selector-fixture');
           });
 
           test('Dragging away from an album will remove the dragging class', function(done) {
@@ -297,7 +297,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         
         suite('Drop event', function() {
           setup(function() {
-            el = fixture('birch-gallery-view-selector-fixture');
+            el = fixture('fs-gallery-view-selector-fixture');
           });
 
           test('Dropping on my memories from my archive view', function(done) {
@@ -377,7 +377,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         suite('New Album', function() { 
           var server
           setup(function() {
-            el = fixture('birch-gallery-view-selector-fixture');
+            el = fixture('fs-gallery-view-selector-fixture');
             server = sinon.fakeServer.create();
             server.respondWith("POST", "/artifactmanager/albums",
               [200, { 'Content-Type': 'application/json' },

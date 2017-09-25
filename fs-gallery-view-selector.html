@@ -22,16 +22,16 @@ An element providing a solution to no problem in particular.
 
 Example:
 
-    <birch-gallery-view-selector></birch-gallery-view-selector>
+    <fs-gallery-view-selector></fs-gallery-view-selector>
 
 @group Seed Elements
-@element birch-gallery-view-selector
+@element fs-gallery-view-selector
 @demo demo/index.html
 @hero hero.svg
 -->
-<dom-module id="birch-gallery-view-selector">
+<dom-module id="fs-gallery-view-selector">
   <style include='fs-styles'></style>
-  <link rel="import" type="css" href="birch-gallery-view-selector.css">
+  <link rel="import" type="css" href="fs-gallery-view-selector.css">
   <template>
     <template is='dom-if' if="[[!readOnly]]">
       <iron-ajax
@@ -123,7 +123,7 @@ Example:
 <script>
 (function() {
   Polymer({
-    is: 'birch-gallery-view-selector',
+    is: 'fs-gallery-view-selector',
     behaviors: [
       WCI18n(),
       OakI18nBehavior,
