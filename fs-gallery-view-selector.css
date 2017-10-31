@@ -71,6 +71,13 @@ input.album-title-input {
 .close-button {
   float:right;
   margin: 0 0 5px;
+  background-color: transparent;
+  border: none;
+  filter: brightness(3);
+}
+
+.close-button:hover {
+  filter: brightness(1);
 }
 
 .fs-badge {

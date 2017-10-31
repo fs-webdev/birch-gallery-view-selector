@@ -11,7 +11,6 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 <link rel="import" href="../iron-selector/iron-selector.html">
 <link rel="import" href="../layout/layout.html">
 <link rel="import" href="../fs-styles/fs-styles.html">
-<link rel="import" href="../styles-wc/fs-button/fs-button.html">
 <link rel="import" href="../iron-ajax/iron-ajax.html">
 <link rel="import" href="../wc-i18n/wc-i18n.html">
 <link rel="import" href="../iron-a11y-keys/iron-a11y-keys.html">
@@ -95,12 +94,12 @@ Example:
         </template>
         <li id='newAlbumView' class='layout horizontal center' hidden$='[[!_addingAlbum]]'>
           <div class='add-album'>
-            <button id='closeButton' class='close-button' is='fs-button' option='close' on-tap='_handleCancelNewAlbum'></button>
+            <button id='closeButton' class="fs-icon fs-icon-close close-button" aria-label="Close modal" on-tap='_handleCancelNewAlbum'>&nbsp;</button>
             <iron-a11y-keys target="[[_albumInput]]" keys="esc" on-keys-pressed="_toggleAddAlbum"></iron-a11y-keys>
             <iron-a11y-keys target="[[_albumInput]]" keys="enter" on-keys-pressed="_createNewAlbum"></iron-a11y-keys>
             <input id='titleInput' class='album-title-input' type="text" value='{{_newAlbum.name::input}}' maxlength$='[[_nameMaxLength]]'>
             <div class="layout horizontal center justified">
-              <button id='saveButton' is='fs-button' option='recommended' on-tap='_createNewAlbum' disabled='[[!_newAlbum.name]]'>[[i18n('save')]]</button>
+              <button id='saveButton' class="fs-button fs-button--recommended fs-button--small" on-tap='_createNewAlbum' disabled='[[!_newAlbum.name]]'>[[i18n('save')]]</button>
               <span>[[_charsRemaining(_newAlbum.name)]]</span>
             </div>
           </div>
