@@ -312,8 +312,7 @@ Example:
         value: false
       },
       _albumInput: {
-        type: Object,
-        value: function() { return this.$.titleInput; }
+        type: Object
       },
       _newAlbum: {
         type: Object,
@@ -447,6 +446,7 @@ Example:
       }
     },
     ready: function() {
+      this._albumInput = this.$$('#titleInput');
       this.listen(document, 'gallery-album-edit', '_renderAlbumList');
     },
     attached: function() {
