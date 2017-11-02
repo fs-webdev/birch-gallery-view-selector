@@ -24,7 +24,8 @@
   },
   "devDependencies": {
     "iron-component-page": "PolymerElements/iron-component-page#^2.0.0",
-    "web-component-tester": "^6.0.0"
+    "web-component-tester": "^6.0.0",
+    "es6-promise": "stefanpenner/es6-promise#4.x"
   },
   "variants": {
     "1.x": {
