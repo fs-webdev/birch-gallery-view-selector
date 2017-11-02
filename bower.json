@@ -14,8 +14,7 @@
     "/test/"
   ],
   "dependencies": {
-    "polymer": "Polymer/polymer#2",
-    "layout": "fs-webdev/layout#1.0.0",
+    "polymer": "Polymer/polymer#1 - 2",
     "fs-styles": "fs-webdev/fs-styles#3.x",
     "iron-ajax": "PolymerElements/iron-ajax#^2.0.0",
     "iron-a11y-keys": "PolymerElements/iron-a11y-keys#~2.0.0",
@@ -31,7 +30,6 @@
     "1.x": {
       "dependencies": {
         "polymer": "Polymer/polymer#^1.2.0",
-        "layout": "fs-webdev/layout#1.0.0",
         "fs-styles": "fs-webdev/fs-styles#3.x",
         "iron-ajax": "PolymerElements/iron-ajax#~1.0.9",
         "iron-a11y-keys": "PolymerElements/iron-a11y-keys#~1.0.3",
