@@ -1,3 +1,5 @@
 bower_components
 node_modules
 coverage
+bower-1.x.json
+bower_components-1.x

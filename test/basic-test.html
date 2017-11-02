@@ -15,6 +15,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
     <script src="../../webcomponentsjs/webcomponents-lite.js"></script>
     <script src="../../web-component-tester/browser.js"></script>
+    <script src="/components/es6-promise-polyfill/promise.js"></script>
 
     <!-- Step 1: import the element to test -->
     <link rel="import" href="../fs-gallery-view-selector.html">
@@ -31,57 +32,57 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     <script>
       var el;
       var albumList = [{
-            "id": 116255, 
-            "name": "asdfq", 
-            "description": "", 
-            "contributorPatronId": 556427, 
-            "restrictionState": "OK", 
-            "creationDatetime": 1440431401000, 
-            "slug": "asdfq", 
-            "thumbUrl": "https://beta.familysearch.org/patron/v2/TH-903-57669-3-5/thumb200.jpg?ctx=ArtCtxPublic", 
-            "thumbSquareUrl": "https://beta.familysearch.org/patron/v2/TH-903-57669-3-5/thumb200s.jpg?ctx=ArtCtxPublic", 
-            "thumbIconUrl": "https://beta.familysearch.org/patron/v2/TH-903-57669-3-5/thumb64.jpg?ctx=ArtCtxPublic", 
-            "artifactCount": 13, 
-            "visitCount": 0, 
-            "seoIndexable": true, 
-            "favorite": false, 
-            "uploaderId": 556427, 
+            "id": 116255,
+            "name": "asdfq",
+            "description": "",
+            "contributorPatronId": 556427,
+            "restrictionState": "OK",
+            "creationDatetime": 1440431401000,
+            "slug": "asdfq",
+            "thumbUrl": "https://beta.familysearch.org/patron/v2/TH-903-57669-3-5/thumb200.jpg?ctx=ArtCtxPublic",
+            "thumbSquareUrl": "https://beta.familysearch.org/patron/v2/TH-903-57669-3-5/thumb200s.jpg?ctx=ArtCtxPublic",
+            "thumbIconUrl": "https://beta.familysearch.org/patron/v2/TH-903-57669-3-5/thumb64.jpg?ctx=ArtCtxPublic",
+            "artifactCount": 13,
+            "visitCount": 0,
+            "seoIndexable": true,
+            "favorite": false,
+            "uploaderId": 556427,
             "editableByCaller": true
-            }, 
+            },
             {
-            "id": 116258, 
-            "name": "asfojifijosa", 
-            "description": "", 
-            "contributorPatronId": 556427, 
-            "restrictionState": "OK", 
-            "creationDatetime": 1440432066000, 
-            "slug": "asfojifijosa", 
-            "thumbUrl": "https://beta.familysearch.org/patron/v2/TH-903-57669-3-5/thumb200.jpg?ctx=ArtCtxPublic", 
-            "thumbSquareUrl": "https://beta.familysearch.org/patron/v2/TH-903-57669-3-5/thumb200s.jpg?ctx=ArtCtxPublic", 
-            "thumbIconUrl": "https://beta.familysearch.org/patron/v2/TH-903-57669-3-5/thumb64.jpg?ctx=ArtCtxPublic", 
-            "artifactCount": 4, 
-            "visitCount": 0, 
-            "seoIndexable": true, 
-            "favorite": false, 
-            "uploaderId": 556427, 
+            "id": 116258,
+            "name": "asfojifijosa",
+            "description": "",
+            "contributorPatronId": 556427,
+            "restrictionState": "OK",
+            "creationDatetime": 1440432066000,
+            "slug": "asfojifijosa",
+            "thumbUrl": "https://beta.familysearch.org/patron/v2/TH-903-57669-3-5/thumb200.jpg?ctx=ArtCtxPublic",
+            "thumbSquareUrl": "https://beta.familysearch.org/patron/v2/TH-903-57669-3-5/thumb200s.jpg?ctx=ArtCtxPublic",
+            "thumbIconUrl": "https://beta.familysearch.org/patron/v2/TH-903-57669-3-5/thumb64.jpg?ctx=ArtCtxPublic",
+            "artifactCount": 4,
+            "visitCount": 0,
+            "seoIndexable": true,
+            "favorite": false,
+            "uploaderId": 556427,
             "editableByCaller": true
-            }, 
+            },
             {
-            "id": 116309, 
-            "name": "Better Title", 
-            "description": "Add a thing? And edit it!", 
-            "contributorPatronId": 556427, 
-            "restrictionState": "OK", 
-            "creationDatetime": 1441221455000, 
-            "slug": "better-title", 
-            "thumbUrl": "https://beta.familysearch.org/patron/v2/TH-903-57669-3-5/thumb200.jpg?ctx=ArtCtxPublic", 
-            "thumbSquareUrl": "https://beta.familysearch.org/patron/v2/TH-903-57669-3-5/thumb200s.jpg?ctx=ArtCtxPublic", 
-            "thumbIconUrl": "https://beta.familysearch.org/patron/v2/TH-903-57669-3-5/thumb64.jpg?ctx=ArtCtxPublic", 
-            "artifactCount": 21, 
-            "visitCount": 0, 
-            "seoIndexable": true, 
-            "favorite": false, 
-            "uploaderId": 556427, 
+            "id": 116309,
+            "name": "Better Title",
+            "description": "Add a thing? And edit it!",
+            "contributorPatronId": 556427,
+            "restrictionState": "OK",
+            "creationDatetime": 1441221455000,
+            "slug": "better-title",
+            "thumbUrl": "https://beta.familysearch.org/patron/v2/TH-903-57669-3-5/thumb200.jpg?ctx=ArtCtxPublic",
+            "thumbSquareUrl": "https://beta.familysearch.org/patron/v2/TH-903-57669-3-5/thumb200s.jpg?ctx=ArtCtxPublic",
+            "thumbIconUrl": "https://beta.familysearch.org/patron/v2/TH-903-57669-3-5/thumb64.jpg?ctx=ArtCtxPublic",
+            "artifactCount": 21,
+            "visitCount": 0,
+            "seoIndexable": true,
+            "favorite": false,
+            "uploaderId": 556427,
             "editableByCaller": true
           }];
       var fireKeyEvent;
@@ -93,17 +94,17 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           files: [{ value: 'Hello World' }],
           getData: function() { return this.files }
         }
-        
+
         return event;
       };
-     
+
 
       suite('<fs-gallery-view-selector>', function() {
 
-        
+
         setup(function() {
           el = fixture('fs-gallery-view-selector-fixture');
-          
+
           fireKeyEvent = function(keycode) {
             var event = new Event('keydown');
               event.key = 'ArrowDown';
@@ -140,8 +141,8 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         });
 
         test('if hideCounts is on, only 1 count should be displayed', function(done) {
-            el.hideCounts = true;
-            el.albums = albumList;
+          el.hideCounts = true;
+          el.albums = albumList;
           flush(function() {
             var spans = Polymer.dom(el.root).querySelectorAll('.fs-badge');
             var count = 0;
@@ -154,6 +155,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           });
         });
 
+/*
         test('If the down arrow key is hit the next item will be selected', function(done) {
           var selector = Polymer.dom(el.root).querySelector('#routerSelector');
 
@@ -167,7 +169,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           }
 
           document.addEventListener('keydown', keydownListener, false);
-          
+
           flush(function() {
             Polymer.dom(el.root).querySelector('#list').focus();
             // There are issues with testing focus programatically but
@@ -206,11 +208,12 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
             fireKeyEvent(38);
           });
         });
+*/
 
         /**
          * Dragover event
          */
-        
+
         suite('Drag over event', function() {
           setup(function() {
             el = fixture('fs-gallery-view-selector-fixture');
@@ -220,14 +223,14 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
             var event = EventFactory('dragover');
             var album;
             el.albums = albumList;
-            
+
             flush(function() {
               album = Polymer.dom(el.root).querySelectorAll('li.album-item')[0];
               album.addEventListener('dragover', function(e) {
                 expect(album.classList.contains('dragging')).to.be.true;
-                done(); 
+                done();
               });
-              album.dispatchEvent(event);   
+              album.dispatchEvent(event);
             });
           });
 
@@ -236,15 +239,15 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
             var myMemories;
             el.albums = albumList;
             el.view = 'some-album';
-            
+
             flush(function() {
               myMemories = Polymer.dom(el.root).querySelector('li[data-uid = my-memories]');
               myMemories.addEventListener('dragover', function(e) {
                 expect(myMemories.classList.contains('dragging')).to.be.false;
                 expect(e.dataTransfer.dropEffect).to.equal('move');
-                done(); 
+                done();
               });
-              myMemories.dispatchEvent(event);   
+              myMemories.dispatchEvent(event);
             });
           });
 
@@ -253,14 +256,14 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
             var myMemories;
             el.albums = albumList;
             el.view = 'my-archive';
-            
+
             flush(function() {
               myMemories = Polymer.dom(el.root).querySelector('li[data-uid = my-memories]');
               myMemories.addEventListener('dragover', function(e) {
                 expect(myMemories.classList.contains('dragging')).to.be.true;
-                done(); 
+                done();
               });
-              myMemories.dispatchEvent(event);   
+              myMemories.dispatchEvent(event);
             });
           });
         });
@@ -268,7 +271,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         /**
          * Dragleave event
          */
-        
+
         suite('Dragleave event', function() {
           setup(function() {
             el = fixture('fs-gallery-view-selector-fixture');
@@ -281,12 +284,12 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
             flush(function() {
               album = Polymer.dom(el.root).querySelectorAll('li.album-item')[0];
-              album.classList.add('dragging');   
+              album.classList.add('dragging');
               album.addEventListener('dragleave', function(e) {
                 expect(album.classList.contains('dragging')).to.be.false;
-                done(); 
+                done();
               });
-              album.dispatchEvent(event); 
+              album.dispatchEvent(event);
             });
           });
         });
@@ -294,7 +297,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         /**
          * Drop event
          */
-        
+
         suite('Drop event', function() {
           setup(function() {
             el = fixture('fs-gallery-view-selector-fixture');
@@ -305,7 +308,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
             var myMemories;
             var spy = sinon.spy(el, '_handleDrop');
             el.view = 'my-archive';
-            
+
             flush(function() {
               myMemories = Polymer.dom(el.root).querySelector('li[data-uid = my-memories]');
               el.addEventListener('gallery-execute-action', function(e) {
@@ -313,7 +316,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
                 expect(spy.calledOnce).to.be.true;
                 done();
               })
-              myMemories.dispatchEvent(event);   
+              myMemories.dispatchEvent(event);
             });
           });
 
@@ -322,7 +325,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
             var myFavorites;
             var spy = sinon.spy(el, '_handleDrop');
             el.view = 'my-archive';
-            
+
             flush(function() {
               myFavorites = Polymer.dom(el.root).querySelector('li[data-uid = my-favorites]');
               el.addEventListener('gallery-execute-action', function(e) {
@@ -330,7 +333,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
                 expect(spy.calledOnce).to.be.true;
                 done();
               })
-              myFavorites.dispatchEvent(event);   
+              myFavorites.dispatchEvent(event);
             });
           });
 
@@ -338,7 +341,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
             var event = EventFactory('drop');
             var myArchive;
             var spy = sinon.spy(el, '_handleDrop');
-            
+
             flush(function() {
               myArchive = Polymer.dom(el.root).querySelector('li[data-uid = my-archive]');
               el.addEventListener('gallery-execute-action', function(e) {
@@ -346,7 +349,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
                 expect(spy.calledOnce).to.be.true;
                 done();
               })
-              myArchive.dispatchEvent(event);   
+              myArchive.dispatchEvent(event);
             });
           });
 
@@ -355,7 +358,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
             var album;
             var spy = sinon.spy(el, '_handleDrop');
             el.albums = albumList;
-            
+
             flush(function() {
               album = Polymer.dom(el.root).querySelectorAll('li.album-item')[0];
               albumId = album.getAttribute('data-uid')
@@ -365,16 +368,16 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
                 expect(spy.calledOnce).to.be.true;
                 done();
               })
-              album.dispatchEvent(event);   
+              album.dispatchEvent(event);
             });
           });
         });
-        
+
         /**
          * New Album
          */
-        
-        suite('New Album', function() { 
+
+        suite('New Album', function() {
           var server
           setup(function() {
             el = fixture('fs-gallery-view-selector-fixture');
@@ -397,7 +400,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
               expect(Polymer.dom(el.root).querySelector('#newAlbumView').hasAttribute('hidden')).to.be.true;
             });
           });
-          
+
           test('Click the new album button', function(done) {
             var spy = sinon.spy(el, '_createNewAlbum');
             el.addEventListener('gallery-router-new-album', function(e) {
