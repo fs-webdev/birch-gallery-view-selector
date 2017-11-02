@@ -15,7 +15,21 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
     <script src="../../webcomponentsjs/webcomponents-lite.js"></script>
     <script src="../../web-component-tester/browser.js"></script>
-    <link rel="import" href="../promise-polyfill/promise-polyfill.html">
+    <script src='../promise-polyfill/Promise.js'></script>
+    <script>
+    (function() {
+      if (!window.Promise) {
+        var asap;
+        if (window.Polymer) {
+          asap = Polymer.Base.async;
+        } else {
+          asap = setTimeout;
+        }
+
+        window.Promise = MakePromise(asap);
+      }
+    })()
+    </script>
 
     <!-- Step 1: import the element to test -->
     <link rel="import" href="../fs-gallery-view-selector.html">
