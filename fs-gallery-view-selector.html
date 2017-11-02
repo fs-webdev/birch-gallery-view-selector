@@ -98,7 +98,7 @@ Example:
       }
 
       .albums-divider {
-        margin:15px 0 0;
+        margin:18px 0 3px;
       }
 
       .close-button {
@@ -135,13 +135,9 @@ Example:
         width: 100%;
         color: #333331;
         text-decoration: none;
-        padding: 5px;
+        padding: 2px 5px;
         box-sizing: border-box;
         -moz-box-sizing: border-box;
-      }
-
-      li.li-padding {
-        padding: 5px;
       }
 
       li:first-child,
@@ -258,11 +254,11 @@ Example:
             </div>
           </li>
         </template>
-        <li class="li-padding " title$="[[i18n('albums')]]">
+        <li title$="[[i18n('albums')]]">
           <h5 class='albums-divider'>[[i18n('albums')]]</h5>
         </li>
         <template is='dom-if' if="[[!readOnly]]">
-          <li id='newAlbumLink' class='li-padding add-item-toggle' on-tap='_toggleAddAlbum' hidden$='[[_addingAlbum]]' title$="[[i18n('new_album')]]">
+          <li id='newAlbumLink' class='add-item-toggle' on-tap='_toggleAddAlbum' hidden$='[[_addingAlbum]]' title$="[[i18n('new_album')]]">
             <div>
               <i class="album-icon add-folder-icon"></i>
               <span>[[i18n('new_album')]]</span>
