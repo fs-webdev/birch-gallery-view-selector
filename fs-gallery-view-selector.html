@@ -34,7 +34,8 @@ Example:
       :host {
         display: inline-block;
         width:200px;
-        height:calc(100% - 56px);
+        height:calc(100% - 65px) !important;
+        overflow: scroll;
         -webkit-overflow-scrolling: touch;
         --album-border-style: 1px solid #d2d2d2;
         border-right: var(--album-border-style);
@@ -55,8 +56,6 @@ Example:
         list-style: none;
         margin:0;
         padding:0;
-        overflow: scroll;
-        height: 100%;
       }
 
       ul:focus {
