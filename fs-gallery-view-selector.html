@@ -15,6 +15,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 <link rel="import" href="../iron-a11y-keys/iron-a11y-keys.html">
 <link rel="import" href="../oak-i18n-behavior/oak-i18n-behavior.html">
 <link rel="import" href="../oak-ajax-behavior/oak-ajax-behavior.html">
+<link rel="import" href="../fs-metrics/fs-metrics.html">
 <!--
 An element providing a solution to no problem in particular.
 
@@ -305,7 +306,8 @@ Example:
     behaviors: [
       WCI18n(),
       OakI18nBehavior,
-      OakAJAXBehavior
+      OakAJAXBehavior,
+      FsBehaviors.Metrics
     ],
     properties: {
       // Private Props
@@ -495,6 +497,7 @@ Example:
       this.push('albums', e.detail.response);
       this.fire('gallery-router-new-album', e.detail.response);
       this._toggleAddAlbum();
+      this.fireMetrics({link_name: 'Album: Save New'});
     },
     _handleDrag: function(e) {
       if (this.readOnly || this.view === 'recently-deleted') return;
