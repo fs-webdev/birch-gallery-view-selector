@@ -450,6 +450,7 @@ Example:
       }
     },
     ready: function() {
+      this.fire('resize');
       this._albumInput = this.$$('#titleInput');
       this.listen(document, 'gallery-album-edit', '_renderAlbumList');
     },
