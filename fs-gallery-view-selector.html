@@ -221,7 +221,12 @@ Example:
       *[hidden] {
         display: none !important;
       }
-
+      .albumDiv {
+        display: block;
+      }
+      .albumDiv span {
+        margin-left: 5px;
+      }
     </style>
     <template is='dom-if' if="[[!readOnly]]">
       <iron-ajax
@@ -284,7 +289,7 @@ Example:
           </li>
         </template>
         <li id='newAlbumView' hidden$='[[!_addingAlbum]]'>
-          <div class='add-album'>
+          <div class='add-album albumDiv'>
             <button id='closeButton' class="fs-icon fs-icon-close close-button" aria-label="Close modal" on-tap='_handleCancelNewAlbum'>&nbsp;</button>
             <iron-a11y-keys target="[[_albumInput]]" keys="esc" on-keys-pressed="_toggleAddAlbum"></iron-a11y-keys>
             <iron-a11y-keys target="[[_albumInput]]" keys="enter" on-keys-pressed="_createNewAlbum"></iron-a11y-keys>
