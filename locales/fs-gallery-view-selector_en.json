@@ -1,12 +1,12 @@
 {
   "my_memories":"My Memories",
-  "my_favorites":"My Favorites",
+  "my_likes":"My Likes",
   "my_archive":"My Archive",
   "recently_deleted":"Recently Deleted",
   "albums":"Albums",
   "new_album":"New Album",
   "save":"Save",
-  "memories_desc":"This is a collection of all of the memories you have contributed, except those moved to My Archive.",
+  "memories_desc":"This is a collection of all the memories you have contributed, except those moved to My Archive.",
   "favorites_desc":"This is a collection of memories you have made favorites by clicking the heart icon on the memory's page.",
   "archive_desc":"You can move memories here that you no longer want to see in My Memories.",
   "deleted_desc":"This is a collection of memories you have recently deleted."
