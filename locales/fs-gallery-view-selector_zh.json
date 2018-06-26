@@ -1,4 +1,5 @@
 {
+  "_LRM_PKTAG184": "fs-gallery-view-selector_1_108 - CHANGES-ONLY",
   "albums": "專輯",
   "archive_desc": "你可以把在「我的回憶」裡不想看到的回憶移到這裡。",
   "deleted_desc": "這是你最近刪除的回憶收藏。",
@@ -6,6 +7,7 @@
   "memories_desc": "此項收藏是你所提供的所有回憶，不包括那些已移到「我的文獻」的回憶。",
   "my_archive": "我的文獻",
   "my_favorites": "我的最愛",
+  "my_likes": "我的喜愛",
   "my_memories": "我的回憶",
   "new_album": "新專輯",
   "recently_deleted": "最近刪除的回憶",
