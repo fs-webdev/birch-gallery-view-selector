@@ -259,7 +259,7 @@ Example:
           </div>
         </li>
         <!-- My Favorites Static Selector -->
-        <li class='items-view' data-uid='my-favorites' on-dragover='_handleDrag' on-dragleave='_clearDrag' on-drop='_handleDrop' title$="[[i18n('favorites_desc)]]">
+        <li class='items-view' data-uid='my-favorites' on-dragover='_handleDrag' on-dragleave='_clearDrag' on-drop='_handleDrop' title$="[[i18n('favorites_desc')]]">
           <div>
             <i class='album-icon my-favorites-icon'></i>
             <template is="dom-if" if="[[!memoriesLikeEx]]">
@@ -273,7 +273,7 @@ Example:
         </li>
         <!-- Recently Deleted Static Selector -->
         <template is="dom-if" if="[[showRecentlyDeleted]]">
-          <li class='items-view' data-uid='recently-deleted' on-dragover='_handleDrag' on-dragleave='_clearDrag' on-drop='_handleDrop' title$="[[i18n('deleted_desc)]]">
+          <li class='items-view' data-uid='recently-deleted' on-dragover='_handleDrag' on-dragleave='_clearDrag' on-drop='_handleDrop' title$="[[i18n('deleted_desc')]]">
             <div>
               <i class='album-icon recently-deleted-icon'></i>
               <span>[[i18n('recently_deleted')]]</span>
