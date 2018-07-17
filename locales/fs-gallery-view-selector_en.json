@@ -9,6 +9,7 @@
   "save":"Save",
   "memories_desc":"This is a collection of all the memories you have contributed, except those moved to My Archive.",
   "favorites_desc":"This is a collection of memories you have made favorites by clicking the heart icon on the memory's page.",
+  "likes_desc":"This is a collection of memories you have made likes by clicking the heart icon on the memory's page.",
   "archive_desc":"You can move memories here that you no longer want to see in My Memories.",
   "deleted_desc":"This is a collection of memories you have recently deleted."
 }

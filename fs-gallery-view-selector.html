@@ -259,7 +259,7 @@ Example:
           </div>
         </li>
         <!-- My Favorites Static Selector -->
-        <li class='items-view' data-uid='my-favorites' on-dragover='_handleDrag' on-dragleave='_clearDrag' on-drop='_handleDrop' title$="[[i18n('favorites_desc')]]">
+        <li class='items-view' data-uid='my-favorites' on-dragover='_handleDrag' on-dragleave='_clearDrag' on-drop='_handleDrop' title$="[[_fetchLabelHoverText(i18n)]]">
           <div>
             <i class='album-icon my-favorites-icon'></i>
             <template is="dom-if" if="[[!memoriesLikeEx]]">
@@ -605,5 +605,9 @@ Example:
         this.$.titleInput.focus();
       }
     },
+    _fetchLabelHoverText: function(i18n) {
+      if (!i18n('likes_desc')) return;
+      return this.memoriesLikeEx ? i18n('likes_desc') : i18n('favorites_desc');
+    }
   });
 </script>
