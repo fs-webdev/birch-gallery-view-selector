@@ -1,9 +1,10 @@
 {
-  "_LRM_PKTAG48": "fs-gallery-view-selector_1_104 - CHANGES-ONLY",
+  "_LRM_PKTAG624": "fs-gallery-view-selector_2_104 - CHANGES-ONLY",
   "albums": "アルバム",
   "archive_desc": "もう「思い出」で表示したくない思い出を，ここに移動することができます。",
   "deleted_desc": "これは，あなたが削除した思い出のコレクションです。",
   "favorites_desc": "これは，思い出ページのハートのアイコンをクリックしてお気に入りにした思い出のコレクションです。",
+  "likes_desc": "これは，思い出ページのハートのアイコンをクリックして「いいね！」の印を付けた思い出のコレクションです。",
   "memories_desc": "これは，あなたが提供した全ての思い出（「アーカイブ」に移動したものを除く）のコレクションです。",
   "my_archive": "アーカイブ",
   "my_favorites": "お気に入り",
