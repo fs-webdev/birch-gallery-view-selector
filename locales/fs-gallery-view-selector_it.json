@@ -1,9 +1,10 @@
 {
-  "_LRM_PKTAG14": "fs-gallery-view-selector_1_103 - CHANGES-ONLY",
+  "_LRM_PKTAG439": "fs-gallery-view-selector_2_103 - CHANGES-ONLY",
   "albums": "Album",
   "archive_desc": "Puoi spostare qui i ricordi che non vuoi più vedere in I miei ricordi.",
   "deleted_desc": "È una raccolta di ricordi che sono stati cancellati di recente.",
   "favorites_desc": "Questa è una raccolta di ricordi da te contrassegnati come preferiti cliccando l’icona a forma di cuore nella pagina del singolo ricordo.",
+  "likes_desc": "Questa è una raccolta di ricordi da te contrassegnati con Mi piace cliccando l’icona a forma di cuore nella pagina del singolo ricordo.",
   "memories_desc": "Questa è una raccolta di tutti i ricordi che hai inserito, ad eccezione di quelli spostati in Il mio archivio.",
   "my_archive": "Il mio archivio",
   "my_favorites": "I miei preferiti",
