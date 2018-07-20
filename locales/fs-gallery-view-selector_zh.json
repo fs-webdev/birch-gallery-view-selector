@@ -1,9 +1,10 @@
 {
-  "_LRM_PKTAG184": "fs-gallery-view-selector_1_108 - CHANGES-ONLY",
+  "_LRM_PKTAG132": "fs-gallery-view-selector_2_108 - CHANGES-ONLY",
   "albums": "專輯",
   "archive_desc": "你可以把在「我的回憶」裡不想看到的回憶移到這裡。",
   "deleted_desc": "這是你最近刪除的回憶收藏。",
   "favorites_desc": "此項收藏是你點選回憶頁面上的心形圖示，標記為最愛的回憶。",
+  "likes_desc": "此項收藏是你點選回憶頁面上的心形圖示，標記為喜愛的回憶。",
   "memories_desc": "此項收藏是你所提供的所有回憶，不包括那些已移到「我的文獻」的回憶。",
   "my_archive": "我的文獻",
   "my_favorites": "我的最愛",
