@@ -1,9 +1,10 @@
 {
-  "_LRM_PKTAG446": "fs-gallery-view-selector_1_101 - CHANGES-ONLY",
+  "_LRM_PKTAG101": "fs-gallery-view-selector_2_101 - CHANGES-ONLY",
   "albums": "Álbumes",
   "archive_desc": "Usted puede poner aquí los recuerdos que ya no quiere ver en Mis recuerdos.",
   "deleted_desc": "Esta es una colección de recuerdos que has eliminado recientemente.",
   "favorites_desc": "Esta es una colección de recuerdos que usted ha seleccionado como favoritos al hacer clic en el icono de corazón en la página recuerdos.",
+  "likes_desc": "Esta es una colección de recuerdos que has seleccionado como Me gustan al hacer clic en el icono de corazón en la página Recuerdos.",
   "memories_desc": "Esta es una colección de todos los recuerdos con los que usted ha contribuido, excepto aquellos que se han puesto en Mis archivos.",
   "my_archive": "Mi archivo",
   "my_favorites": "Mis favoritos",

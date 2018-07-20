@@ -1,9 +1,10 @@
 {
-  "_LRM_PKTAG90": "fs-gallery-view-selector_1_102 - CHANGES-ONLY",
+  "_LRM_PKTAG523": "fs-gallery-view-selector_2_102 - CHANGES-ONLY",
   "albums": "Albums",
   "archive_desc": "Vous pouvez déplacer ici les souvenirs que vous ne voulez plus voir dans la rubrique « Mes souvenirs ».",
   "deleted_desc": "Cette section contient l’ensemble des souvenirs que vous avez supprimés récemment.",
   "favorites_desc": "C’est une collection des souvenirs que vous avez ajoutés aux favoris en cliquant sur l’icône du cœur de la page des souvenirs.",
+  "likes_desc": "C’est une collection des souvenirs que vous avez ajoutés aux favoris en cliquant sur l’icône du cœur de la page des souvenirs.",
   "memories_desc": "C’est une collection de tous les souvenirs que vous avez fournis, excepté ceux déplacés dans le dossier « Mes archives ».",
   "my_archive": "Mes archives",
   "my_favorites": "Mes favoris",
