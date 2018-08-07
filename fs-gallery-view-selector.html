@@ -246,16 +246,16 @@ Example:
         <li class='items-view' data-uid='my-memories' on-dragover='_handleDrag' on-dragleave='_clearDrag' on-drop='_handleDrop' title$="[[i18n('memories_desc')]]">
           <div>
             <i class='album-icon my-memories-icon'></i>
-            <span data-test='selector-my-memories'>[[i18n('my_memories')]]</span>
-            <span class='fs-badge' hidden$='[[_hideCount(hideCounts, view, "my-memories")]]'>[[count]]</span>
+            <span data-test="selector-my-memories">[[i18n('my_memories')]]</span>
+            <span class='fs-badge' data-test="MyMemoriesCount" hidden$='[[_hideCount(hideCounts, view, "my-memories")]]'>[[count]]</span>
           </div>
         </li>
         <!-- My Archive Static Selector -->
         <li class='items-view' data-uid='my-archive' on-dragover='_handleDrag' on-dragleave='_clearDrag' on-drop='_handleDrop' title$="[[i18n('archive_desc')]]">
           <div>
             <i class='album-icon my-archive-icon'></i>
-            <span>[[i18n('my_archive')]]</span>
-            <span class='fs-badge' hidden$='[[_hideCount(hideCounts, view, "my-archive")]]'>[[_getCount(archiveCount, hideCounts, count)]]</span>
+            <span data-test="MyArchiveFolder">[[i18n('my_archive')]]</span>
+            <span class='fs-badge' data-test="MyArchiveCount" hidden$='[[_hideCount(hideCounts, view, "my-archive")]]'>[[_getCount(archiveCount, hideCounts, count)]]</span>
           </div>
         </li>
         <!-- My Favorites Static Selector -->
@@ -266,9 +266,9 @@ Example:
               <span>[[i18n('my_favorites')]]</span>
             </template>
             <template is="dom-if" if="[[memoriesLikeEx]]">
-              <span>[[i18n('my_likes')]]</span>
+              <span data-test="MyLikesFolder">[[i18n('my_likes')]]</span>
             </template>
-            <span class='fs-badge' hidden$='[[_hideCount(hideCounts, view, "my-favorites")]]'>[[_getCount(favoritesCount, hideCounts, count)]]</span>
+            <span class='fs-badge' data-test="MyLikesCount" hidden$='[[_hideCount(hideCounts, view, "my-favorites")]]'>[[_getCount(favoritesCount, hideCounts, count)]]</span>
           </div>
         </li>
         <!-- Recently Deleted Static Selector -->
@@ -276,8 +276,8 @@ Example:
           <li class='items-view' data-uid='recently-deleted' on-dragover='_handleDrag' on-dragleave='_clearDrag' on-drop='_handleDrop' title$="[[i18n('deleted_desc')]]">
             <div>
               <i class='album-icon recently-deleted-icon'></i>
-              <span>[[i18n('recently_deleted')]]</span>
-              <span class='fs-badge' hidden$='[[_hideCount(hideCounts, view, "recently-deleted")]]'>[[_getCount(deletedCount, hideCounts, count)]]</span>
+              <span data-test="RecentlyDeletedFolder">[[i18n('recently_deleted')]]</span>
+              <span class='fs-badge' data-test="RecentlyDeletedCount" hidden$='[[_hideCount(hideCounts, view, "recently-deleted")]]'>[[_getCount(deletedCount, hideCounts, count)]]</span>
             </div>
           </li>
         </template>
@@ -285,7 +285,7 @@ Example:
           <h5 class='albums-divider'>[[i18n('albums')]]</h5>
         </li>
         <template is='dom-if' if="[[!readOnly]]">
-          <li id='newAlbumLink' class='add-item-toggle' on-tap='_toggleAddAlbum' hidden$='[[_addingAlbum]]' title$="[[i18n('new_album')]]">
+          <li id='newAlbumLink' class='add-item-toggle' on-tap='_toggleAddAlbum' hidden$='[[_addingAlbum]]' title$="[[i18n('new_album')]]" data-test="NewAlbumBtn">
             <div>
               <i class="album-icon add-folder-icon"></i>
               <span>[[i18n('new_album')]]</span>
@@ -297,10 +297,10 @@ Example:
             <button id='closeButton' class="fs-icon fs-icon-close close-button" aria-label="Close modal" on-tap='_handleCancelNewAlbum'>&nbsp;</button>
             <iron-a11y-keys target="[[_albumInput]]" keys="esc" on-keys-pressed="_toggleAddAlbum"></iron-a11y-keys>
             <iron-a11y-keys target="[[_albumInput]]" keys="enter" on-keys-pressed="_createNewAlbum"></iron-a11y-keys>
-            <input id='titleInput' class='album-title-input' type="text" value='{{_newAlbum.name::input}}' maxlength$='[[_nameMaxLength]]'>
+            <input id='titleInput' class='album-title-input' type="text" value='{{_newAlbum.name::input}}' maxlength$='[[_nameMaxLength]]' data-test="NewAlbumTitleInput">
             <div>
-              <button id='saveButton' class="fs-button fs-button--recommended fs-button--small" on-tap='_createNewAlbum' disabled='[[!_newAlbum.name]]'>[[i18n('save')]]</button>
-              <span>[[_charsRemaining(_newAlbum.name)]]</span>
+              <button id='saveButton' data-test="NewAlbumSaveBtn" class="fs-button fs-button--recommended fs-button--small" on-tap='_createNewAlbum' disabled='[[!_newAlbum.name]]'>[[i18n('save')]]</button>
+              <span data-test="AlbumCharLimit">[[_charsRemaining(_newAlbum.name)]]</span>
             </div>
           </div>
         </li>
@@ -309,8 +309,8 @@ Example:
           <li class='items-view album-item' data-uid$='[[album.id]]' on-dragover='_handleDrag' on-dragleave='_clearDrag' on-drop='_handleDrop' title$="[[album.name]]">
             <div>
               <i class='album-icon folder-icon'></i>
-              <span>[[album.name]]</span>
-              <span class='fs-badge' hidden$='[[_hideCount(hideCounts, view, album.id)]]'>[[_getCount(album.artifactCount, hideCounts, count)]]</span>
+              <span data-test="AlbumName">[[album.name]]</span>
+              <span class='fs-badge' data-test="AlbumCount" hidden$='[[_hideCount(hideCounts, view, album.id)]]'>[[_getCount(album.artifactCount, hideCounts, count)]]</span>
             </div>
           </li>
         </template>
