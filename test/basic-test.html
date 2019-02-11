@@ -382,7 +382,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           setup(function() {
             el = fixture('fs-gallery-view-selector-fixture');
             server = sinon.fakeServer.create();
-            server.respondWith("POST", "/artifactmanager/albums",
+            server.respondWith("POST", "/service/memories/manager/albums",
               [200, { 'Content-Type': 'application/json' },
               '{ "success": true }']);
           });
