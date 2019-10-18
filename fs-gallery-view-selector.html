@@ -550,16 +550,16 @@ Example:
       if (!e.dataTransfer.getData('text')) return;
 
       if (collection === 'my-favorites') {
-        this.fire('gallery-execute-action', { 'actionType' : 'add_to_my_favorites' });
+        this.fire('gallery-perform-action', { 'actionType' : 'add_to_my_favorites' });
       } else if (collection === 'my-memories') {
-        this.fire('gallery-execute-action', { 'actionType' : 'unarchive' });
+        this.fire('gallery-perform-action', { 'actionType' : 'unarchive' });
       } else if (collection === 'my-archive') {
-        this.fire('gallery-execute-action', { 'actionType' : 'archive' });
+        this.fire('gallery-perform-action', { 'actionType' : 'archive' });
       } else if (collection === 'recently-deleted') {
-        this.fire('gallery-execute-action', { 'actionType' : 'delete' });
+        this.fire('gallery-perform-action', { 'actionType' : 'delete' });
       } else {
         // Tell gallery-data to add selected items to this album
-        this.fire('gallery-execute-action', { 'actionType' : 'add_to_album', 'albumId' : collection });
+        this.fire('gallery-perform-action', { 'actionType' : 'add_to_album', 'albumId' : collection });
       }
     },
     _hideCount: function(hide, currentView, targetView) {
