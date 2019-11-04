@@ -1,16 +1,16 @@
 {
-  "_LRM_PKTAG439": "fs-gallery-view-selector_2_103 - CHANGES-ONLY",
-  "albums": "Album",
-  "archive_desc": "Puoi spostare qui i ricordi che non vuoi più vedere in I miei ricordi.",
-  "deleted_desc": "È una raccolta di ricordi che sono stati cancellati di recente.",
-  "favorites_desc": "Questa è una raccolta di ricordi da te contrassegnati come preferiti cliccando l’icona a forma di cuore nella pagina del singolo ricordo.",
-  "likes_desc": "Questa è una raccolta di ricordi da te contrassegnati con Mi piace cliccando l’icona a forma di cuore nella pagina del singolo ricordo.",
-  "memories_desc": "Questa è una raccolta di tutti i ricordi che hai inserito, ad eccezione di quelli spostati in Il mio archivio.",
-  "my_archive": "Il mio archivio",
+  "my_memories": "I miei ricordi",
   "my_favorites": "I miei preferiti",
   "my_likes": "I miei Mi piace",
-  "my_memories": "I miei ricordi",
-  "new_album": "Nuovo album",
+  "liked_memories": "Ricordi contrassegnati con Mi piace",
+  "my_archive": "Il mio archivio",
   "recently_deleted": "Cancellati di recente",
-  "save": "Salva"
+  "albums": "Album",
+  "new_album": "Nuovo album",
+  "save": "Salva",
+  "memories_desc": "Questa è una raccolta di tutti i ricordi che hai inserito, ad eccezione di quelli spostati in Il mio archivio.",
+  "favorites_desc": "Questa è una raccolta di ricordi da te contrassegnati come preferiti cliccando l’icona a forma di cuore nella pagina del singolo ricordo.",
+  "likes_desc": "Questa è una raccolta di ricordi da te contrassegnati con Mi piace cliccando l’icona a forma di cuore nella pagina del singolo ricordo.",
+  "archive_desc": "Puoi spostare qui i ricordi che non vuoi più vedere in I miei ricordi.",
+  "deleted_desc": "È una raccolta di ricordi che sono stati cancellati di recente."
 }
