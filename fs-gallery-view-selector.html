@@ -15,6 +15,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 <link rel="import" href="../iron-a11y-keys/iron-a11y-keys.html">
 <link rel="import" href="../oak-i18n-behavior/oak-i18n-behavior.html">
 <link rel="import" href="../oak-ajax-behavior/oak-ajax-behavior.html">
+<link rel="import" href="../fs-memories-albums-service/fs-memories-albums-service.html">
 <link rel="import" href="../fs-metrics/fs-metrics.html">
 <!--
 An element providing a solution to no problem in particular.
@@ -352,6 +353,7 @@ Example:
       WCI18n(),
       OakI18nBehavior,
       OakAJAXBehavior,
+      FsMemoriesAlbumsService,
       FsBehaviors.Metrics
     ],
     properties: {
@@ -648,14 +650,8 @@ Example:
       return i18n('likes_desc');
     },
     _fetchLikedAlbums: async function() {
-      try {
-        const resp = await FS.fetch(`/service/memories/manager/patrons/${FS.User.getEffectiveId()}/favoriteAlbums/albums`);
-        if (resp) {
-          if (resp.count) this.likedAlbums = resp.album;
-        }
-      } catch (error) {
-        console.error('There was an error fetching liked albums:', error);
-      }
+      const resp = await this.getAlbumFavorites();
+      if (resp && resp.count) this.likedAlbums = resp.album;
     },
     handleLikedAlbum: function(e) {
       if (!e || !e.detail) return;

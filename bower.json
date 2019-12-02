@@ -21,6 +21,7 @@
     "wc-i18n": "jshcrowthe/wc-i18n#^2.1.0",
     "oak-i18n-behavior": "fs-webdev/oak-i18n-behavior",
     "oak-ajax-behavior": "fs-webdev/oak-ajax-behavior",
+    "fs-memories-albums-service": "fs-webdev/fs-memories-albums-service#1.x",
     "fs-metrics": "fs-webdev/fs-metrics#1.x"
   },
   "devDependencies": {
