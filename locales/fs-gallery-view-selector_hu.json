@@ -1,0 +1,16 @@
+{
+  "albums": "Albumok",
+  "archive_desc": "Ide átteheted azokat az emlékeket, amelyeket nem akarsz többé a saját emlékeid között látni.",
+  "deleted_desc": "Ez a nemrégiben általad törölt emlékek gyűjteménye.",
+  "favorites_desc": "Ez azoknak az emlékeknek a gyűjteménye, melyeket az emlék oldalán található szív ikonra kattintva a kedvencek közé soroltál.",
+  "liked_memories": "Hivatkozott emlékek",
+  "likes_desc": "Ez azoknak az emlékeknek a gyűjteménye, melyeket az emlék oldalán található szív ikonra kattintva kedveltél.",
+  "memories_desc": "Ez minden tőled érkező emlék gyűjteménye, azokat kivéve, amelyek a saját archívumodba kerültek.",
+  "my_archive": "Archívumom",
+  "my_favorites": "Kedvenceim",
+  "my_likes": "Kedveléseim",
+  "my_memories": "Emlékeim",
+  "new_album": "Új album",
+  "recently_deleted": "Nemrég törölve",
+  "save": "Mentés"
+}
