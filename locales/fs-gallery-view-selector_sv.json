@@ -1,0 +1,16 @@
+{
+  "albums": "Album",
+  "archive_desc": "Du kan flytta hit minnen du inte längre vill se i Mina minnen.",
+  "deleted_desc": "Det här är en samling minnen du nyligen har raderat.",
+  "favorites_desc": "Det här är en samling minnen du har angett som favoriter genom att klicka på hjärtikonen på minnets sida.",
+  "liked_memories": "Gillade minnen",
+  "likes_desc": "Det här är en samling minnen du har gillat genom att klicka på hjärtikonen på minnets sida.",
+  "memories_desc": "Det här är en samling av alla minnen du har bidragit med, förutom de som flyttats till Mitt arkiv.",
+  "my_archive": "Mitt arkiv",
+  "my_favorites": "Mina favoriter",
+  "my_likes": "Mina gillamarkeringar",
+  "my_memories": "Mina minnen",
+  "new_album": "Nytt album",
+  "recently_deleted": "Nyligen raderat",
+  "save": "Spara"
+}

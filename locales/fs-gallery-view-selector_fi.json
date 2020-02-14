@@ -1,0 +1,16 @@
+{
+  "albums": "Albumit",
+  "archive_desc": "Voit siirtää tähän muistoja, joita et enää halua nähdä kohteessa Omat muistoni.",
+  "deleted_desc": "Tämä on kokoelma äskettäin poistamiasi muistoja.",
+  "favorites_desc": "Tämä on kokoelma muistoista, jotka olet merkinnyt suosikeiksi napsauttamalla sydänkuvaketta, joka on muiston sivulla.",
+  "liked_memories": "Tykätyt muistot",
+  "likes_desc": "Tämä on kokoelma muistoista, jotka olet merkinnyt tykätyiksi napsauttamalla sydänkuvaketta, joka on muiston sivulla.",
+  "memories_desc": "Tämä on kaikkien antamiesi muistojen kokoelma, lukuun ottamatta niitä, jotka on siirretty Arkistoni-kansioon.",
+  "my_archive": "Oma arkistoni",
+  "my_favorites": "Omat suosikkini",
+  "my_likes": "Omat tykkäykseni",
+  "my_memories": "Omat muistoni",
+  "new_album": "Uusi albumi",
+  "recently_deleted": "Äskettäin poistetut",
+  "save": "Tallenna"
+}
