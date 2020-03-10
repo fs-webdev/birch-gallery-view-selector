@@ -1,0 +1,16 @@
+{
+  "albums": "Alba",
+  "archive_desc": "Sem můžete přesunout vzpomínky, které již nechcete mít ve složce Mé vzpomínky.",
+  "deleted_desc": "Toto je sbírka vzpomínek, které jste nedávno smazali.",
+  "favorites_desc": "Toto je sbírka vzpomínek, které jste označili jako oblíbené kliknutím na ikonu srdce na stránce s příslušnou vzpomínkou.",
+  "liked_memories": "Oblíbené vzpomínky",
+  "likes_desc": "Toto je sbírka vzpomínek, které jste označili jako oblíbené kliknutím na ikonu srdce na stránce s příslušnou vzpomínkou.",
+  "memories_desc": "Toto je sbírka všech vzpomínek, kterými jste přispěli, vyjma těch, které byly přesunuty do složky Můj archiv.",
+  "my_archive": "Můj archiv",
+  "my_favorites": "Moje oblíbené",
+  "my_likes": "Líbí se mi",
+  "my_memories": "Moje vzpomínky",
+  "new_album": "Nové album",
+  "recently_deleted": "Nedávno smazáno",
+  "save": "Uložit"
+}
