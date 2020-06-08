@@ -1,0 +1,16 @@
+{
+  "albums": "Albume",
+  "archive_desc": "Poți muta aici amintiri pe care nu dorești să le mai vezi în Amintirile mele.",
+  "deleted_desc": "Aceasta este o colecție de amintiri pe care le-ai șters recent.",
+  "favorites_desc": "Aceasta este o colecție cu amintirile pe care le-ai adăugat la preferate, apăsând pe iconul indicând o inimă, aflat pe pagina amintirii.",
+  "liked_memories": "Amintiri pe care le apreciez",
+  "likes_desc": "Aceasta este o colecție cu amintirile despre care ai indicat că îți plac, apăsând pe iconul indicând o inimă, aflat pe pagina amintirii.",
+  "memories_desc": "Aceasta este o colecție cu toate amintirile pe care le-ai adăugat, cu excepția celor pe care le-ai mutat în Arhiva mea.",
+  "my_archive": "Arhiva mea",
+  "my_favorites": "Preferatele mele",
+  "my_likes": "Aprecierile mele",
+  "my_memories": "Amintirile mele",
+  "new_album": "Album nou",
+  "recently_deleted": "Șterse recent",
+  "save": "Salvează"
+}

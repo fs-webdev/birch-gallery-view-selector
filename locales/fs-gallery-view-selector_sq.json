@@ -1,0 +1,16 @@
+{
+  "albums": "Albumet",
+  "archive_desc": "Ju mund të zhvendosni këtu kujtime që nuk dëshironi t’i shihni më te Kujtimet e Mia",
+  "deleted_desc": "Ky është një koleksion i kujtimeve që i keni fshirë së fundi.",
+  "favorites_desc": "Ky është një koleksioni i kujtimeve që ju i keni bërë të parapëlqyera duke klikuar tek ikona e zemrës në faqen e kujtimeve.",
+  "liked_memories": "Kujtimet e Pëlqyera",
+  "likes_desc": "Ky është një koleksioni i kujtimeve që ju i keni bërë të pëlqyera duke klikuar tek ikona e zemrës në faqen e kujtimeve.",
+  "memories_desc": "Ky është një koleksion i gjithë kujtimeve që janë kontributi juaj, përveç atyre të zhvendosura tek Arkivi Im.",
+  "my_archive": "Arkivi Im",
+  "my_favorites": "Parapëlqimet e Mia",
+  "my_likes": "Pëlqimet e Mia",
+  "my_memories": "Kujtimet e Mia",
+  "new_album": "Album i Ri",
+  "recently_deleted": "U Fshi së Fundi",
+  "save": "Ruaje"
+}
