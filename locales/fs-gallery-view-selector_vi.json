@@ -1,0 +1,16 @@
+{
+  "albums": "Album Ảnh",
+  "archive_desc": "Bạn có thể chuyển vào đây các kỷ niệm mà bạn không còn muốn thấy trong Những Kỷ Niệm của Tôi.",
+  "deleted_desc": "Đây là bộ sưu tập những kỷ niệm bạn đã xóa gần đây.",
+  "favorites_desc": "Đây là bộ sưu tập những kỷ niệm bạn đã chọn ưa thích nhất bằng cách bấm vào biểu tượng hình trái tim trên trang kỷ niệm.",
+  "liked_memories": "Những Kỷ Niệm Ưa Thích",
+  "likes_desc": "Đây là bộ sưu tập những kỷ niệm bạn đã chọn ưa thích bằng cách bấm vào biểu tượng hình trái tim trên trang kỷ niệm.",
+  "memories_desc": "Đây là bộ sưu tập tất cả những kỷ niệm bạn đã đóng góp, ngoại trừ những kỷ niệm đã được đưa vào Văn Khố của Tôi.",
+  "my_archive": "Văn Khố của Tôi",
+  "my_favorites": "Điều Tôi Thích Nhất",
+  "my_likes": "Những Cái Thích của Tôi",
+  "my_memories": "Những Kỷ Niệm của Tôi",
+  "new_album": "Album Ảnh Mới",
+  "recently_deleted": "Đã Xóa Gần Đây",
+  "save": "Lưu"
+}
