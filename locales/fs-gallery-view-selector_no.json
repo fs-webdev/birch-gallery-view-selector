@@ -1,0 +1,16 @@
+{
+  "albums": "Albumer",
+  "archive_desc": "Du kan flytte minner hit som du ikke lenger ønsker å se i Mine minner.",
+  "deleted_desc": "Dette er en samling minner du nylig har slettet.",
+  "favorites_desc": "Dette er en samling minner du har gjort til favoritter ved å klikke på hjerteikonet på minnesiden.",
+  "liked_memories": "Likte minner",
+  "likes_desc": "Dette er en samling minner du har likt ved å klikke på hjerteikonet på minnesiden.",
+  "memories_desc": "Dette er en samling av alle minnene du har bidratt med, bortsett fra de som er flyttet til Mitt arkiv.",
+  "my_archive": "Mitt arkiv",
+  "my_favorites": "Mine favoritter",
+  "my_likes": "Hva jeg liker",
+  "my_memories": "Mine minner",
+  "new_album": "Nytt album",
+  "recently_deleted": "Nylig slettet",
+  "save": "Lagre"
+}
