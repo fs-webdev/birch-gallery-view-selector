@@ -2,7 +2,10 @@
   "my_memories": "I miei ricordi",
   "my_favorites": "I miei preferiti",
   "my_likes": "I miei Mi piace",
+  "bookmarks": "Segnalibri",
+  "bookmarked_memories": "Ricordi",
   "liked_memories": "Ricordi contrassegnati con Mi piace",
+  "favorite_memories": "Ricordi preferiti",
   "my_archive": "Il mio archivio",
   "recently_deleted": "Cancellati di recente",
   "albums": "Album",
@@ -11,6 +14,7 @@
   "memories_desc": "Questa è una raccolta di tutti i ricordi che hai inserito, ad eccezione di quelli spostati in Il mio archivio.",
   "favorites_desc": "Questa è una raccolta di ricordi da te contrassegnati come preferiti cliccando l’icona a forma di cuore nella pagina del singolo ricordo.",
   "likes_desc": "Questa è una raccolta di ricordi da te contrassegnati con Mi piace cliccando l’icona a forma di cuore nella pagina del singolo ricordo.",
+  "bookmarks_desc": "Questa è una raccolta di ricordi da te contrassegnati cliccando l’icona del segnalibro nella pagina del singolo ricordo.",
   "archive_desc": "Puoi spostare qui i ricordi che non vuoi più vedere in I miei ricordi.",
   "deleted_desc": "È una raccolta di ricordi che sono stati cancellati di recente."
 }

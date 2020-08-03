@@ -2,7 +2,10 @@
   "my_memories": "Minhas Recordações",
   "my_favorites": "Minhas Favoritas",
   "my_likes": "Minhas curtidas",
+  "bookmarks": "Favoritos",
+  "bookmarked_memories": "Recordações",
   "liked_memories": "Recordações curtidas",
+  "favorite_memories": "Recordações favoritas",
   "my_archive": "Meu Arquivo",
   "recently_deleted": "Excluídas Recentemente",
   "albums": "Álbuns",
@@ -11,6 +14,7 @@
   "memories_desc": "É uma coleção de todas as recordações que você forneceu, com exceção daquelas movidas para Meu Arquivo.",
   "favorites_desc": "É uma coleção de recordações que você escolheu como favoritas ao clicar no ícone em forma de coração, na página da recordação.",
   "likes_desc": "Esta é uma coleção de recordações que você escolheu como favorita ao clicar no ícone de coração na página de recordação.",
+  "bookmarks_desc": "Esta é uma coleção de recordações que você escolheu como favorita ao clicar no ícone de Favoritos na página recordações.",
   "archive_desc": "Pasta para onde você pode mover as recordações que você não queira mais ver em Minhas Recordações.",
   "deleted_desc": "Esta é uma coleção de recordações que você excluiu recentemente."
 }

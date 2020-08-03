@@ -2,7 +2,10 @@
   "my_memories": "Mes souvenirs",
   "my_favorites": "Mes favoris",
   "my_likes": "Les souvenirs que j’aime",
+  "bookmarks": "Marque-pages",
+  "bookmarked_memories": "Souvenirs",
   "liked_memories": "Souvenirs favoris",
+  "favorite_memories": "Souvenirs préférés",
   "my_archive": "Mes archives",
   "recently_deleted": "Supprimés récemment",
   "albums": "Albums",
@@ -11,6 +14,7 @@
   "memories_desc": "C’est une collection de tous les souvenirs que vous avez fournis, excepté ceux déplacés dans le dossier « Mes archives ».",
   "favorites_desc": "C’est une collection des souvenirs que vous avez ajoutés aux favoris en cliquant sur l’icône du cœur de la page des souvenirs.",
   "likes_desc": "C’est une collection des souvenirs que vous avez ajoutés aux favoris en cliquant sur l’icône du cœur de la page des souvenirs.",
+  "bookmarks_desc": "Ceci est une collection de souvenirs auxquels vous avez ajouté à un marque-page en cliquant sur l’icône du marque-page de la page des souvenirs.",
   "archive_desc": "Vous pouvez déplacer ici les souvenirs que vous ne voulez plus voir dans la rubrique « Mes souvenirs ».",
   "deleted_desc": "Cette section contient l’ensemble des souvenirs que vous avez supprimés récemment."
 }
