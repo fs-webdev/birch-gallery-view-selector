@@ -647,7 +647,7 @@ Example:
       }
     },
     _fetchLabelHoverText: function(i18n, likeToBookmarkEx) {
-      if (!i18n('bookmarks_desc')) return;
+      if (!i18n || !i18n('bookmarks_desc')) return;
       return likeToBookmarkEx ? i18n('bookmarks_desc') : i18n('likes_desc');
     },
     _fetchLikedAlbums: async function() {
@@ -668,11 +668,11 @@ Example:
       }
     },
     _fetchMyFavoritesText: function(i18n, likeToBookmarkEx) {
-      if (!i18n('bookmarks')) return;
+      if (!i18n || !i18n('bookmarks')) return;
       return likeToBookmarkEx ? i18n('bookmarks') : i18n('my_likes');
     },
     _fetchFavoriteMemoriesText: function(i18n, likeToBookmarkEx) {
-      if (!i18n('bookmarked_memories')) return;
+      if (!i18n || !i18n('bookmarked_memories')) return;
       return likeToBookmarkEx ? i18n('bookmarked_memories') : i18n('liked_memories');
     }
   });
