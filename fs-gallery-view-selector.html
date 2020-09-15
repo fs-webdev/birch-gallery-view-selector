@@ -608,9 +608,10 @@ Example:
       if (!hide) return false;
       return currentView != targetView;
     },
-    _notifyViewChanged: function(value) {
+    _notifyViewChanged: function(value, oldValue) {
       this.fire('gallery-view-changed', {
-        view: value
+        view: value,
+        oldView: oldValue
       });
     },
     _setupArrowListeners: function() {
